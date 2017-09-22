@@ -1,0 +1,330 @@
+<!-- Information area -->
+<script src="js/AOApp/controllers/app/settingsCtrl.js"></script>
+<div class="container-fluid" controller = "settingsCtrl">
+    <div class="row" style="padding:5px">
+
+        <div class="col-md-3">
+            <!--left col-->
+            <ul class="list-group">
+                <li class="list-group-item text-muted list-items">Account Balance</li>
+                <li class="list-group-item text-right list-items-content">
+                    <span class="pull-left"><strong>Available Buying Power:</strong></span>
+                    <span><i class="fa fa-usd"></i>{{userMargin.avail_usd_val | number: 2}}</span>
+                </li>
+            </ul>
+
+            <ul class="list-group">
+                <li class="list-group-item text-muted list-items">Account Stats</li>
+                <li class="list-group-item text-right list-items-content"><span class="pull-left"><strong>Fees</strong></span>$
+                    <span class="USDFees">{{totalFees | number: 2}}</span>
+                </li>
+                <li class="list-group-item text-right list-items-content"><span class="pull-left"><strong>Margin Usage</strong></span>
+                    <span class="USDFees">{{(1 - userMargin.usage_fraction)*100 | number:2}}%</span>
+                </li>
+            </ul>
+
+            <ul class="list-group">
+                <li class="list-group-item text-muted list-items">Profile</li>
+                <li class="list-group-item text-right list-items-content"><span class="pull-left"><strong>KYC</strong></span> <a href="#KYC" style="color:white;font-weight:100">Require Update</a>
+                </li>
+                <li class="list-group-item text-right list-items-content"><span class="pull-left"><strong>AML</strong></span> <a href="http://alt-options.com/legal.php" style="color:white;font-weight:100">Require Update</a>
+            </ul>
+
+            <ul class="list-group">
+                <li class="list-group-item text-muted list-items">2 Factor Authentication</li>
+                <li class="list-group-item text-right list-items-content"><span class="pull-left"><strong>2FA(2 Factor Auth):</strong></span>
+                    <button id="2FA_Enable" class="btn btn-success btn-xs" ng-click  = "enable2FA()">Enable</button>
+                    <button id="2FA_Disable" class="btn btn-danger btn-xs" ng-click  = "disable2FA()">Disable</button>
+                </li>
+                <li class="list-group-item text-right list-items-content" style = "display:block"><span class="pull-left"><strong>2FA Status:</strong></span><span ng-if = "TFAStatus == false">Disabled</span><span ng-if = "TFAStatus">Enabled</span></li>
+            </ul>
+        </div>
+        <!--/col-3-->
+
+
+        <div class="col-md-7 settings-tab">
+            <div class ="col-md-12">
+              <ul class="nav nav-tabs" id="myTab" style="height:43px;">
+
+                  <li class="active"><a href="#settings" show-tab = "" data-toggle="tab">Password</a>
+                  </li>
+                  <!-- <li><a href="#Deposit" data-toggle="tab">Funding</a>
+                  </li> -->
+                  <li><a href="#home" show-tab = ""  data-toggle="tab">Trading History</a>
+                  </li>
+                  <!-- <li><a href="#message"  show-tab = "" data-toggle="tab">System Message</a>
+                  </li> -->
+                  <li><a href="#KYC"  show-tab = "" data-toggle="tab">KYC</a>
+                  </li>
+                  <li><a href="#funding"  show-tab = "" data-toggle="tab">Funding</a>
+                  </li>
+              </ul>
+
+              <div class="tab-content">
+
+                  <div class="tab-pane" id="home" style="padding:1px">
+                      <table class="table trading table-condensed" style="text-align:center;width:100%">
+                          <thead>
+                              <tr style="height: 2.7em;">
+                                  <td>OrderID</td>
+                                  <td>Asset</td>
+                                  <td>Type</td>
+                                  <td>Price</td>
+                                  <td>Size</td>
+                                  <td>Total</td>
+                                  <td>Status</td>
+                                  <td>Execution Time</td>
+                                  <td>Execution Details</td>
+                              </tr>
+                          </thead>
+
+                          <tbody id="POtable4" style = "height:350px">
+                            <div class="cssload-thecube" ng-hide= "totalRecords.length > 0">
+                                <div class="cssload-cube cssload-c1"></div>
+                                <div class="cssload-cube cssload-c2"></div>
+                                <div class="cssload-cube cssload-c4"></div>
+                                <div class="cssload-cube cssload-c3"></div>
+                            </div>
+                            <tr ng-repeat = "order in totalRecords track by $index" ng-show = "totalRecords.length > 0">
+                                <td>{{order.id}}</td>
+                                <td>{{order.product}}</td>
+                                <td>{{order.order_type}}</td>
+                                <td>{{order.price | closed}}</td>
+                                <td>{{order.original_amount}}</td>
+                                <td>{{order.price * order.original_amount | closed}}</td>
+                                <td>{{order.status}}</td>
+                                <td>{{order.create_time | date: 'MM/dd/yyyy @ h:mma'}}</td>
+                                <td><button class="btn btn-success cancelBtn" ng-click = "getTrades(order.id)">Execution Details</button></td>
+                            </tr>
+                          </tbody>
+
+                      </table>
+                  </div>
+
+                  <div class="tab-pane" id="funding" style="padding:1px;">
+                    <div id ="password-warpper" style = "height:420px;">
+                      <form class="form" action="##" method="post" id="registrationForm" style="font-size:15;">
+                        <div class="col-xs-5">
+                            <label for="depositXBT">
+                                <h5>Deposit Address</h5>
+                            </label>
+                            <input ng-model = "opsw" type="password" class="form-control" name="oldPassword" id="oldPassword" placeholder="old password" title="Enter your old password">
+                        </div>
+                        <div class="col-xs-6 col-xs-offset-7">
+                        </div>
+                        <div class="col-xs-5">
+                            <label for="depositXBT">
+                                <h5>Withdrawal Address</h5>
+                            </label>
+                            <input ng-model = "opsw" type="password" class="form-control" name="oldPassword" id="oldPassword" placeholder="old password" title="Enter your old password">
+                        </div>
+                        <div class="col-xs-6 col-xs-offset-7">
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+
+
+                  <!--/tab-pane-->
+                  <div class="tab-pane active" id="settings">
+                    <div id ="password-warpper">
+                      <form class="form" action="##" method="post" id="registrationForm" style="font-size:15;">
+
+                          <div class="form-group">
+                              <div class="col-xs-5">
+                                  <label for="oldPassword">
+                                      <h5>Current Password</h5>
+                                  </label>
+                                  <input ng-model = "opsw" type="password" class="form-control" name="oldPassword" id="oldPassword" placeholder="old password" title="Enter your old password">
+                              </div>
+
+                              <div class="col-xs-6 col-xs-offset-7">
+
+                              </div>
+
+                          </div>
+
+                          <div class="form-group">
+
+                              <div class="col-xs-5">
+                                  <label for="newPassword">
+                                      <h5>New Password</h5>
+                                  </label>
+                                  <input ng-model = "npsw" type="password" class="form-control" name="newPassword" id="newPassword" placeholder="new password" title="Enter your new password">
+                              </div>
+
+                              <div class="col-xs-5">
+                                  <label for="confirmPassword">
+                                      <h5>Confirm Password</h5>
+                                  </label>
+                                  <input ng-model = "cpsw" type="password" class="form-control" name="confirmPassword" id="confirmPassword" placeholder="new password" title="Please type your new password again">
+                              </div>
+
+                          </div>
+
+                          <div class="form-group">
+                              <div class="col-xs-4" style="margin:0px 0px 20px -50px">
+                                  <br>
+                                  <button id="save-click" class="btn btn-md btn-success" type="reset" ng-click = "resetPassword(opsw,npsw)">Update</button>
+                                  <button class="btn btn-md btn-default" type="reset" ng-click = "npsw = ''; opsw = ''; cpsw = ''">Reset</button>
+                              </div>
+                          </div>
+                      </form>
+                    </div>
+                  </div>
+
+
+                  <div class="tab-pane" id="KYC">
+                    <div id ="kyc-warpper">
+                      <form id="KYC-form" data-parsley-validate onsubmit="return checkKYC();">
+
+                          <div class="form-group col-xs-6">
+                              <label for="first_name">
+                                  <h5>First name*</h5>
+                              </label>
+                              <input type="text" class="form-control" name="first_name" ng-model="userParams.first_name" value = "{{userParams.first_name}}" placeholder="some first name" required>
+                          </div>
+
+                          <div class="form-group col-xs-6">
+
+                              <label for="last_name">
+                                  <h5>Last name*</h5>
+                              </label>
+                              <input type="text" class="form-control" name="last_name" ng-model="userParams.last_name"  value = "{{userParams.last_name}}" placeholder="some last name" required>
+                          </div>
+
+                          <div class="form-group col-xs-6">
+                              <label for="dob">
+                                  <h5>Date of Birth*</h5>
+                              </label>
+                              <input type="date" class="form-control" name="dob" ng-model="userParams.dob" value = "{{userParams.dob}}" placeholder="some birthday" required>
+                          </div>
+
+                          <div class="form-group col-xs-6">
+                              <label for="mobile">
+                                  <h5>Mobile Number*</h5>
+                              </label>
+                              <input type="number" class="form-control" name="cell" ng-model="userParams.cell" placeholder="###-###-####" value = "{{userParams.cell}}" required>
+                          </div>
+
+                          <div class="form-group col-xs-6">
+                              <label for="streetadr">
+                                  <h5>Street Address</h5>
+                              </label>
+                              <input type="text" class="form-control" name="addr_street" ng-model="userParams.addr_street" value = "{{userParams.addr_street}}" placeholder="somewhere">
+                          </div>
+
+                          <div class="form-group col-xs-6">
+                              <label for="cityadr">
+                                  <h5>City</h5>
+                              </label>
+                              <input type="text" class="form-control" name="addr_city" ng-model="userParams.addr_city"  value = "{{userParams.addr_city}}" placeholder="some city">
+                          </div>
+
+                          <div class="form-group col-xs-6">
+                              <label for="stateadr">
+                                  <h5>State</h5>
+                              </label>
+                              <input type="text" class="form-control" ng-model="userParams.addr_state" value = "{{userParams.addr_state}}" placeholder="some state">
+                          </div>
+
+                          <div class="form-group col-xs-6">
+                              <label for="zipcode">
+                                  <h5>Zip Code</h5>
+                              </label>
+                              <input type="number" class="form-control" ng-model="userParams.addr_zip" placeholder="zip code">
+                          </div>
+
+                          <div class="form-group">
+                              <div class="invalid-form-error-message"></div>
+                          </div>
+
+                          <div class="form-group">
+                              <div class="col-xs-5" style="margin-bottom:15px;margin-left:-80px">
+                                  <br>
+
+                                  <input type="submit" class="btn btn-success validate" value="Update" ng-click = "changeUserParams(first_name,last_name,dob,cell,addr_street,addr_city,addr_state,addr_zip)" />
+                                  <!-- id="user-pram-click"-->
+                                  <input type="reset" class="btn btn-default" />
+                              </div>
+                          </div>
+                      </form>
+                    </div>
+                  </div>
+
+                  <!-- <div class="tab-pane" id="Deposit" style="padding:3px">
+                    <div id ="password-warpper">
+                      <div class="col-sm-6" style="margin:30px 0 0 15px;font-size:20">
+                          <h4>Bitcoin Deposit</h4>
+                          <table class="table trading">
+                              <thead>
+                                  <tr>
+                                      <th>Wallet</th>
+                                      <th></th>
+                                      <th></th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                  <tr>
+                                      <td>Trading</td>
+                                      <td>
+                                          <span>AOEXTESTWALLET00000000000000000000001</span>
+                                          <br>
+                                          <a href="/account/change_address/?w=trading&amp;t=bitcoin" data-remote="true">Change Address</a>
+                                      </td>
+                                      <td><img style="height:160px" alt="Chart?chs=100x100&amp;chld=m%7c0&amp;cht=qr&amp;chl=bitcoin:3dydiqpxch9spcdftjhzoiutzzd3pwfs8u" src="https://chart.googleapis.com/chart?chs=100x100&amp;chld=M%7C0&amp;cht=qr&amp;chl=bitcoin:AOEXTEST00010101010101010101010101010">
+                                      </td>
+                                  </tr>
+                              </tbody>
+                          </table>
+                      </div>
+                    </div>
+                  </div> -->
+                <!--/tab-content-->
+              </div>
+                <div id="execution_modal" class="modal fade" tabindex="-1" role="dialog" modal = "showModal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="color:white" ng-click  = "closeModal()">×</button>
+                                <h4 class="modal-title">Execution Report</h4>
+                            </div>
+                            <div class="modal-body">
+                                <table class="table trading table-condensed">
+                                    <thead>
+                                        <tr>
+                                          <td>ID</td>
+                                          <td>Execution Price</td>
+                                          <td>Execution Amount</td>
+                                          <td>Total Fees</td>
+                                          <td>Execution Time</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="excution_report">
+                                      <tr ng-repeat = "trade in current_trade track by $index">
+                                        <td>{{trade.id}}</td>
+                                        <td>{{trade.price | currency}}</td>
+                                        <td>{{trade.amount}}</td>
+                                        <td>{{trade.fee | currency}}</td>
+                                        <td>{{trade.time | date: 'MM/dd/yyyy @ h:mma'}}</td>
+                                      </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="modal-footer">
+                                <a  data-dismiss="modal" class="btn btn-success btn-md" ng-click  = "closeModal()">Return</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!--/col-9-->
+            </div>
+            <!--/row-->
+        </div>
+    </div>
+
+</div>
+
+
+<script src="js/external/parsleyjs.min.js"></script>

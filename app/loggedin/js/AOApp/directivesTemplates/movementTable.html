@@ -1,0 +1,36 @@
+<table class="table scroll table-condensed">
+  <thead style = "display:table-header-group">
+    <tr>
+      <th>Days Range</th>
+      <th>Historical Vol</th>
+      <th>68% Confidence</th>
+      <th>95% Confidence</th>
+      <th>99% Confidence</th>
+    </tr>
+  </thead>
+  <tbody style = "display:table-header-group">
+    <tr>
+      <td>30 Days</td>
+      <td><div>{{data[0].thirty.vol | number:2}}%</div></td>
+      <td><div>{{data[0].thirty.down | currency}} - {{data[0].thirty.up | currency}}</div></td>
+      <td><div>{{data[1].thirty.down | currency}} - {{data[1].thirty.up | currency}}</div></td>
+      <td><div>{{data[2].thirty.down | currency}} - {{data[2].thirty.up | currency}}</div></td>
+
+    </tr>
+    <tr>
+      <td>60 Days</td>
+      <td><div>{{data[0].sixty.vol | number:2}}%</div></td>
+      <td><div>{{data[0].sixty.down | currency}} - {{data[0].sixty.up | currency}}</div></td>
+      <td><div>{{data[1].sixty.down | currency}} - {{data[1].sixty.up | currency}}</div></td>
+      <td><div>{{data[2].sixty.down | currency}} - {{data[2].sixty.up | currency}}</div></td>
+
+    </tr>
+    <tr>
+      <td>90 Days</td>
+      <td><div>{{data[0].ninety.vol | number:2}}%</div></td>
+      <td><div>{{data[0].ninety.down | currency}} - {{data[0].ninety.up | currency}}</div></td>
+      <td><div>{{data[1].ninety.down | currency}} - {{data[1].ninety.up | currency}}</div></td>
+      <td><div>{{data[2].ninety.down | currency}} - {{data[2].ninety.up | currency}}</div></td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,311 @@
+<div class="container">
+
+	<div class="col-md-2 col-sm-10 orderbook" id="tour2">
+		<div class="row section-head">
+			<h5>DEPTH:<span id="mktDptProd" style="color:white"></span></h5>
+		</div>
+		<table class="table scroll table-condensed" style="text-align:center;">
+			<thead>
+				<tr>
+					<th>SIZE</th>
+					<th>PRICE</th>
+				</tr>
+			</thead>
+
+			<tbody id="MDtable" style="height:310px;"></tbody>
+		</table>
+
+		<table class="table scroll table-condensed" style="text-align:center; height:312px">
+
+			<tbody id="MDtable2" style="height:314px"></tbody>
+		</table>
+	</div>
+
+	<div class="col-md-5">
+
+		<div class="container-fluid">
+
+			<!-- CHART AREA -->
+			<div id="tour3" class='col-md-12 charting'>
+				<div class="row section-head" style="font-size:12px">
+					<h5>Charting Analytics</h5>
+				</div>
+
+				<div section="normalchart" id="chart">
+					<script type="text/javascript" src="https://d33t3vvu2t2yu5.cloudfront.net/tv.js"></script>
+					<script type="text/javascript">
+						new TradingView.widget({
+							"width": "100%",
+							"height": 340,
+							"symbol": "ITBIT:BTCUSD",
+							"interval": "D",
+							"timezone": "exchange",
+							"theme": "Black",
+							"style": "1",
+							"withdateranges": false,
+							"allow_symbol_change": false,
+							"save_image": false,
+							"hideideas": true,
+							"show_popup_button": false,
+							"popup_width": "1000",
+							"popup_height": "650",
+							"toolbar_bg": 'rgba(255, 255, 255, 0.6)',
+						});
+
+					</script>
+				</div>
+
+				<div section="riskchart" id="risk">
+					<div class="col-md-12">
+						<div id="graph" style="width:100%; height:340px; background:#1E2B34;"></div>
+					</div>
+				</div>
+			</div>
+
+
+			<div id="tour4" class="col-md-12 option-chain">
+				<!-- Market data header -->
+
+
+				<div class="row section-head">
+					<span style="float:left; padding:8px 0px 0px 20px;">CALLS</span>
+					<span style="float:right; padding:8px 20px 0px 0;">PUTS</span>
+					<h5>Expiry Month
+
+
+            <div class="btn-group">
+                <button type="button" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size:12px">
+                    Select <span class="caret"></span>
+                </button>
+                <ul id="expTimes" class="dropdown-menu" style="text-shadow: none">
+                </ul>
+            </div>
+            </h5>
+				</div>
+
+				<!-- Market data table -->
+				<table class="table scroll table-condensed" style="text-align:center;">
+					<thead>
+						<tr>
+							<th>OPEN</th>
+							<th>VOL</th>
+							<th>LAST</th>
+							<th>BID</th>
+							<th>ASK</th>
+							<th>STRIKE</th>
+							<th>BID</th>
+							<th>ASK</th>
+							<th>LAST</th>
+							<th>VOL</th>
+							<th>OPEN</th>
+						</tr>
+					</thead>
+					<tbody id="EMtableC" style="width:54.55%;float:left;"></tbody>
+					<tbody id="EMtableP" style="width:45.45%;"></tbody>
+				</table>
+
+			</div>
+
+		</div>
+	</div>
+	<!-- div col-md-6-->
+
+	<div class="col-md-3">
+		<div id="tour5" class="col-md-12 greeks">
+			<div class="row section-head">
+				<h5>Position Risk Profile</h5>
+			</div>
+
+			<table class="table scroll table-condensed" style="text-align:center">
+				<thead>
+					<tr>
+						<th style="width:25%">ASSET</th>
+						<th>DELTA</th>
+						<th>GAMMA</th>
+						<th>VEGA</th>
+						<th>THETA</th>
+						<!-- <th>RHO</th> -->
+					</tr>
+				</thead>
+
+				<tbody id="greektable" style="height:289px; font-size:12px">
+					<tr>
+						<td>-</td>
+						<td>-</td>
+						<td>-</td>
+						<td>-</td>
+						<td>-</td>
+						<!-- <td>-</td> -->
+					</tr>
+				</tbody>
+				<tfoot id="greektablefoot">
+					<tr>
+						<td>PORTFOLIO</td>
+						<td>-</td>
+						<td>-</td>
+						<td>-</td>
+						<td>-</td>
+						<!-- <td>-</td> -->
+					</tr>
+				</tfoot>
+			</table>
+		</div>
+
+		<div id="tour12" class="col-md-12 positions">
+			<div class="row section-head">
+				<!--<h5>Current Positions</h5>-->
+				<ul class="nav nav-tabs positions-tab" role="tablist" id="myTab" style="border: none; color:black;">
+					<li role="presentation" class="active" style="width:29%"><a href="#curPos" aria-controls="home" role="tab" data-toggle="tab">OPEN POS.</a>
+					</li>
+					<li role="presentation" style="width:33%"><a href="#orders" aria-controls="profile" role="tab" data-toggle="tab">OPEN ORDER</a>
+					</li>
+					<li role="presentation" style="width:37%"><a href="#orders2" aria-controls="profile" role="tab" data-toggle="tab">CLOSED ORDER</a>
+					</li>
+<!---
+            <li role="presentation"><a href="#orders3" aria-controls="profile" role="tab" data-toggle="tab">REJECTED ORDERS</a>
+            </li>
+            -->
+				</ul>
+			</div>
+
+			<div class="tab-content">
+				<!---Tab 1 -->
+				<div role="tabpanel" class="tab-pane active" id="curPos">
+					<table class="table scroll table-condensed">
+						<thead>
+							<tr >
+								<th>ASSET</th>
+								<th>SIZE</th>
+								<th>LAST</th>
+								<th>COST</th>
+								<th>PNL</th>
+							</tr>
+						</thead>
+
+						<tbody id="CPtable"></tbody>
+					</table>
+				</div>
+
+				<!---Tab 2 -->
+				<div role="tabpanel" class="tab-pane" id="orders">
+
+					<table class="table scroll table-condensed">
+						<thead>
+							<tr >
+								<th>ASSET</th>
+								<th>TYPE</th>
+								<th>PRICE</th>
+								<th>AMOUNT</th>
+								<th>ACTION</th>
+							</tr>
+						</thead>
+
+						<tbody id="POtable"></tbody>
+					</table>
+				</div>
+
+				<!--Tab 3 -->
+				<div role="tabpanel" class="tab-pane" id="orders2">
+
+					<table class="table scroll table-condensed">
+						<thead>
+							<tr >
+								<th>ASSET</th>
+								<th>TYPE</th>
+								<th>PRICE</th>
+								<th>AMOUNT</th>
+								<th>TIME</th>
+							</tr>
+						</thead>
+
+						<tbody id="POtable2"></tbody>
+					</table>
+				</div>
+
+			</div>
+
+			<!--Script Default -->
+			<script>
+				$(function() {
+					$('#myTab a:first').tab('show')
+				})
+
+			</script>
+		</div>
+	</div>
+
+	<div class="col-md-2 tradehistory">
+
+		<div class="container-fluid">
+			<div class="row section-head">
+				<h5>Trade History</h5>
+			</div>
+			<table class = "table scroll table-condensed" style="height:625px;">
+				<thead>
+					<tr>
+						<th>SIZE</th>
+					  <th>PRICE</th>
+						<th>TIME</th>
+					</tr>
+				</thead>
+				<tbody id = "LTtable" style="height:625px;"></tbody>
+			</table>
+			</div>
+		</div>
+
+	</div>
+	<!-- div col-md-4-->
+
+<script>
+	$(function() {
+		//Execute every 5 seconds
+		setInterval(function() {
+			AOapi.Account.getOpenOrders(AOui.Account.updateOpenOrders);
+			AOapi.Account.getClosedOrders(AOui.Account.updateClosedOrders);
+			AOapi.Account.getBalances(AOui.Account.updateBalances);
+			AOapi.Account.getPositions(AOui.Account.updatePositions);
+			AOapi.Product.getLastTrades(AOui.Product.updateLastTrades);
+			AOapi.Product.getOrderBook(AOui.Product.updateDepth, {
+				ordProd: document.getElementById('ordProd').innerHTML
+			});
+			AOapi.Product.getOrderBook(AOui.Product.updateSpot, {
+				ordProd: 'XBT'
+			});
+			AOapi.Product.getLastTrades(AOui.Product.updateLastTrades);
+		}, 5000);
+
+		setInterval(function() {
+			AOapi.User.getUserMargin(AOui.Account.updateMargin);
+		}, 10000);
+
+		//Execute once
+		AOapi.Account.getOpenOrders(AOui.Account.updateOpenOrders);
+		AOapi.Account.getClosedOrders(AOui.Account.updateClosedOrders);
+		AOapi.Product.getOrderBook(AOui.Product.updateDepth, {
+			ordProd: document.getElementById('ordProd').innerHTML
+		});
+		AOapi.Product.getOptions(AOui.Product.updateOptions, {
+			expTime: "2015-11-30T23:59:59"
+		});
+		AOapi.Product.getExpirations(AOui.Product.updateExpirations);
+		AOapi.Product.getLastTrades(AOui.Product.updateLastTrades);
+		AOapi.Product.getOrderBook(AOui.Product.updateSpot, {
+			ordProd: 'XBT'
+		});
+		AOapi.User.getUserMargin(AOui.Account.updateMargin);
+	});
+
+</script>
+
+
+<script>
+	$(document).ready(function() {
+		$('#EMtableP').on('scroll', function() {
+			$('#EMtableC').scrollTop($(this).scrollTop());
+		});
+
+		$('#risk').hide();
+		$('#chart').show();
+	});
+
+</script>

@@ -1,0 +1,281 @@
+<script src="js/AOApp/controllers/app/analyticsCtrl.js"></script>
+<div class="col-md-7" controller="analyticsCtrl">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div style="height:125px;background-color:#1E2B34;width:100%;color:white;">
+                    <div class="row section-head">
+                        <h5>Probability & Risk Analysis</h5>
+                    </div>
+                    <!-- <div class="cssload-thecube" style = "margin-top:20%;width:35px;height:35px;" ng-hide= "probabilityChart.length > 2">
+                    <div class="cssload-cube cssload-c1"></div>
+                    <div class="cssload-cube cssload-c2"></div>
+                    <div class="cssload-cube cssload-c4"></div>
+                    <div class="cssload-cube cssload-c3"></div>
+                </div> -->
+                    <movement-table data="probabilityChart"></movement-table>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 option-chain">
+                <!-- <div class="row section-head">
+                <h5>Probability Chart</h5>
+            </div> -->
+
+                <div style="height:343px;background-color:#1E2B34;width:100%;color:white;">
+
+                    <!-- <div class="noData" ng-show="positions.greekArr.length == 0">
+                        <div style="padding-top:25%;">You Don't Have Any Positions To Analyze</div>
+                    </div> -->
+
+                    <div class="cssload-thecube" style="margin-top:20%;width:35px;height:35px;" ng-hide="data2.length == 3">
+                        <div class="cssload-cube cssload-c1"></div>
+                        <div class="cssload-cube cssload-c2"></div>
+                        <div class="cssload-cube cssload-c4"></div>
+                        <div class="cssload-cube cssload-c3"></div>
+                    </div>
+                    <nvd3 options="options2" data="data2" config="config2" ng-show="data2.length == 3"></nvd3>
+                </div>
+            </div>
+
+
+            <div class="col-md-6 option-chain">
+                <!-- <div class="row section-head">
+                  <h5>Risk Chart</h5>
+              </div> -->
+
+                <div style="height:343px;background-color:#1E2B34;width:100%;color:white;">
+
+                    <div class="noData" ng-show="positions.products.length == 0">
+                        <div style="padding-top:25%;">You Don't Have Any Positions To Analyze</div>
+                    </div>
+
+                    <nvd3 options="options" data="data" config="{deepWatchData: true}"></nvd3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12 option-chain">
+            <!-- Market data header -->
+            <!-- <option-table2 data = "optionChain" update-fn = "updateOrderInput(ordPrice, ordAmt, ordProd)" update-fn2 = "add(symbol, bid, ask, amount,)" update-fn3 = "remove(newPos(symbol, bid, ask, amount))"></option-table2> -->
+            <div class="row section-head">
+                <span style="float:left; padding:8px 0px 0px 20px;font-weight:normal" class="hint--bottom  hint--primary" data-hint="An option to buy assets at an agreed price on or before a particular date. &#10;In AOEX, one option represents ONE bitcoin [mutiplier 1:1].">CALLS <i style = "color:grey;font-size:12px"class="fa fa-question-circle"></i></span>
+                <span style="float:right; padding:8px 20px 0px 0px;font-weight:normal" class="hint--bottom  hint--primary" data-hint="An option to sell assets at an agreed price on or before a particular date. &#10;In AOEX, one option represents ONE bitcoin [mutiplier 1:1].">PUTS <i style = "color:grey;font-size:12px" class="fa fa-question-circle"></i></span>
+                <h5>Expiry Date
+
+                      <div class="btn-group">
+                        <button class="btn btn-primary btn-xs dropdown-toggle" type="button" data-toggle="dropdown">{{optionExps[optionExps.length-1].slice(0,10)}}
+                        <span class="caret"></span></button>
+                        <ul class="dropdown-menu exp_dropdown">
+                          <li ng-repeat = "item in optionExps"><a ng-click = "updateExp(item)">{{item}}</a></li>
+                        </ul>
+                      </div>
+                    </h5>
+            </div>
+
+            <table class="table scroll table-condensed" style="text-align:center;">
+                <thead>
+                    <tr>
+                        <th>ANALYZE</th>
+                        <th>OPEN</th>
+                        <th>VOL</th>
+                        <th>LAST</th>
+                        <th>BID</th>
+                        <th>ASK</th>
+                        <th>STRIKE</th>
+                        <th>BID</th>
+                        <th>ASK</th>
+                        <th>LAST</th>
+                        <th>VOL</th>
+                        <th>OPEN</th>
+                        <th>ANALYZE</th>
+                    </tr>
+                </thead>
+
+                <div class="cssload-thecube" style="margin-top:25%;width:85px;height:85px;" ng-hide="optionChain.calls.length > 5">
+                    <div class="cssload-cube cssload-c1"></div>
+                    <div class="cssload-cube cssload-c2"></div>
+                    <div class="cssload-cube cssload-c4"></div>
+                    <div class="cssload-cube cssload-c3"></div>
+                </div>
+
+                <tbody id="EMtableCA" style="width:54.55%;float:left;height:345px">
+                    <tr ng-repeat="call in optionChain.calls track by call.strike | limitTo:15" class="trade" ng-show="optionChain.calls.length > 5">
+                        <td>
+                            <button class="btn btn-success cancelBtn" ng-click="add(newPos(call.name, call.bid_price, call.ask_price, 1))">+1</button>
+                            <button class="btn btn-danger cancelBtn" ng-click="remove(newPos(call.name, call.bid_price, call.ask_price, 1))">-1</button>
+                        </td>
+                        <td ng-click="updateOrderInput(call.bid_price,10, call.name, call.ask_price)" highlighter="call.ask_depth">{{call.ask_depth}}</td>
+                        <td ng-click="updateOrderInput(call.bid_price,10, call.name, call.ask_price)" highlighter="call.volume">{{call.volume}}</td>
+                        <td ng-click="updateOrderInput(call.bid_price,10, call.name, call.ask_price)" highlighter="call.last_price">{{call.last_price}}</td>
+                        <td ng-click="updateOrderInput(call.bid_price,10, call.name, call.ask_price)" highlighter="call.bid_price">{{call.bid_price}}</td>
+                        <td ng-click="updateOrderInput(call.bid_price,10, call.name, call.ask_price)" highlighter="call.ask_price">{{call.ask_price}}</td>
+                        <td>{{call.strike}}</td>
+                    </tr>
+                </tbody>
+                <tbody id="EMtablePA" style="width:45.45%;height:345px">
+                    <tr ng-repeat="put in optionChain.puts track by put.strike| limitTo:15" class="trade" ng-show="optionChain.calls.length > 5">
+                        <td ng-click="updateOrderInput(put.bid_price,10, put.name, put.ask_price)" highlighter="put.bid_price">{{put.bid_price}}</td>
+                        <td ng-click="updateOrderInput(put.bid_price,10, put.name, put.ask_price)" highlighter="put.ask_price">{{put.ask_price}}</td>
+                        <td ng-click="updateOrderInput(put.bid_price,10, put.name, put.ask_price)" highlighter="put.last_price">{{put.last_price}}</td>
+                        <td ng-click="updateOrderInput(put.bid_price,10, put.name, put.ask_price)" highlighter="put.volume">{{put.volume}}</td>
+                        <td ng-click="updateOrderInput(put.bid_price,10, put.name, put.ask_price)" highlighter="put.ask_depth">{{put.ask_depth}}</td>
+                        <td>
+                            <button class="btn btn-success cancelBtn" ng-click="add(newPos(put.name, put.bid_price, put.ask_price, 1))">+1</button>
+                            <button class="btn btn-danger cancelBtn" ng-click="remove(newPos(put.name, put.bid_price, put.ask_price, 1))">-1</button>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+
+
+<div class="col-md-5">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-12s scenario-section">
+                <div class="row section-head">
+                    <h5>Scenario Analysis</h5>
+                </div>
+                <table class="table scroll table-condensed">
+                    <thead style="display:table-header-group" id="sensitivites-table">
+                        <tr>
+                            <th>Prices</th>
+                            <th>T(today)</th>
+                            <th>T+1</th>
+                            <th>T+2</th>
+                            <th>T+3</th>
+                            <th>T+4</th>
+                            <th>T+5</th>
+                            <th>T+6</th>
+                            <!-- <th>T+7</th>
+                          <th>T+8</th> -->
+                        </tr>
+                    </thead>
+
+                    <div class="noData" ng-show="positions.products.length == 0">
+                        <div style="padding-top:50%;">You Don't Have Any Positions</div>
+                    </div>
+
+                    <div class="cssload-thecube" style="margin-top:30%;width:70px;height:70px;" ng-hide=" positions.greekArr.length == 0 || positions.greekArr.length >= 1 ">
+                        <div class="cssload-cube cssload-c1"></div>
+                        <div class="cssload-cube cssload-c2"></div>
+                        <div class="cssload-cube cssload-c4"></div>
+                        <div class="cssload-cube cssload-c3"></div>
+                    </div>
+
+                    <tbody id="sensitivites-table-tbody" style="display:table-header-group">
+                        <tr ng-repeat="position in sensitivityTable.TDArr track by $index" ng-style="colorSpot($index)" ng-show="positions.products.length >= 1">
+                            <td>{{spot*(1.2 - $index*0.02)| currency}}</td>
+                            <td ng-style="getColor(position[0])">{{position[0] | number:2}}</td>
+                            <td ng-style="getColor(position[1])">{{position[1] | number:2}}</td>
+                            <td ng-style="getColor(position[2])">{{position[2] | number:2}}</td>
+                            <td ng-style="getColor(position[3])">{{position[3] | number:2}}</td>
+                            <td ng-style="getColor(position[4])">{{position[4] | number:2}}</td>
+                            <td ng-style="getColor(position[5])">{{position[5] | number:2}}</td>
+                            <td ng-style="getColor(position[6])">{{position[6] | number:2}}</td>
+                            <!-- <td ng-style="getColor(position[7])">{{position[7] | number:2}}</td>
+                          <td ng-style="getColor(position[8])">{{position[8] | number:2}}</td> -->
+                            <!-- <td ng-style="getColor(position[9])">{{position[9] | number:2}}</td> -->
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-5 option-chain">
+                <div class="row section-head">
+                    <h5>Position Added</h5>
+                </div>
+                <div id="analyerPositions" style="width:100%;background:#1E2B34;">
+                    <table class="table scroll table-condensed">
+                        <thead>
+                            <tr>
+                                <th>ASSET</th>
+                                <th>AMOUNT</th>
+                                <th>ACTION</th>
+                            </tr>
+                        </thead>
+                        <tbody id="analyzerAdded" style="height:345px;">
+                            <tr ng-repeat="product in positions.products track by $index">
+                                <td>{{product.name}}</td>
+                                <td>{{product.amount | number: 2}}</td>
+                                <td>
+                                    <button class="btn btn-success cancelBtn" ng-click="openModal()"><i class="fa fa-sort fa-lg"></i> Modify</button>
+                                    <!-- <button class="btn btn-danger cancelBtn" ng-click = "remove(newPos(product.name, product.bid_price, product.ask_price, 1))">Delete</button> -->
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+
+            </div>
+
+            <div id="position_modal" class="modal fade" tabindex="-1" role="dialog" modal="showModal">
+                <div class="modal-dialog">
+                    <div class="modal-content" style="margin-top:30%;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="color:white" ng-click="closeModal()">×</button>
+                            <h4 style="color:white;text-align:center;">Modify Position</h4>
+                        </div>
+                        <div class="modal-body">
+                            <table class="table trading table-condensed">
+                                <thead style="text-align:center">
+                                    <tr>
+                                        <td>Product</td>
+                                        <td>Type</td>
+                                        <td>Price</td>
+                                        <td>Amount</td>
+                                        <td>Exposure</td>
+                                        <td>Modify</td>
+                                        <td>Action</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="product in positions.products track by $index">
+                                        <td>{{product.name}}</td>
+                                        <td>{{product.type}}</td>
+                                        <td>{{product.ask | currency}}</td>
+                                        <td>{{product.amount}}</td>
+                                        <td>{{product.amount * product.ask | currency}}</td>
+                                        <td>
+                                            <form name = "myForm"><input type="number" style="background:none;width:60px;border:1px solid grey;"  ng-model="number" placeholder=" amount" ng-pattern = " /\d+/" ng-change = "modalOnChange(product.name, number)" required/></form>
+                                        </td>
+                                        <td>
+                                            <!-- <button class="btn btn-success cancelBtn" ng-disabled="myForm.$invalid" ng-click="delete(newPos(product.name, product.bid, product.ask));add(newPos(product.name, product.bid, product.ask, number))">Update</button> -->
+                                            <button class="btn btn-danger cancelBtn" ng-click="delete(newPos(product.name, product.bid_price, product.ask_price))">Delete</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="modal-footer">
+                            <a data-dismiss="modal" class="btn btn-success btn-md" ng-click="updateModal(); closeModal() ">Close & Update</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <greek-table2 data="positions.greekArr" update-fn="getTotal()"></greek-table2>
+
+        </div>
+    </div>
+
+</div>
+
+<script>
+    $('#EMtablePA').on('scroll', function() {
+        $('#EMtableCA').scrollTop($(this).scrollTop());
+    });
+	$('#EMtableCA').on('scroll', function() {
+        $('#EMtablePA').scrollTop($(this).scrollTop());
+    });
+</script>

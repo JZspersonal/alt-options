@@ -1,0 +1,24 @@
+<div class="container-fluid">
+  <div class="row section-head">
+    <h5>Trade History</h5>
+  </div>
+  <table class="table scroll table-condensed" style="height:800px;">
+    <thead>
+      <tr>
+        <th>SIZE</th>
+        <th>PRICE</th>
+        <th>TIME</th>
+      </tr>
+    </thead>
+    <tbody id="LTtable" style="height:800px;">
+      <tr class = "trade" ng-repeat="order in data track by $index ">
+        <td>{{order.amount| number:8}}</td>
+        <td style  = "color:#50B949" ng-style="order.price <= data[$index-1].price && {'color':'#50B949'} || order.price > data[$index-1].price && {'color':'#FF6939'}">{{order.price | currency}}
+          <i ng-class="order.price <= data[$index-1].price ? 'fa fa-caret-up' : 'fa fa-caret-down'"></i>
+        </td>
+        <td>{{order.time |  date:'HH:mm:ss'}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>

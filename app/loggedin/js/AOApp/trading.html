@@ -1,0 +1,143 @@
+<div class="container">
+
+  <link href="css/pMain.css" rel="stylesheet">
+  <link href="css/ao-theme.css" rel="stylesheet">
+
+  <div class="col-md-2 col-sm-10 orderbook" id="tour2">
+    <!-- <order-book bids = "bids" asks = "asks" update-fn = "updateOrderInputS(ordPrice,ordAmt)"> </order-book> -->
+     <order-book data = "combinedBA" > </order-book>
+
+  </div>
+
+  <div class="col-md-5">
+    <div class="container-fluid">
+      <div class='col-md-12 charting' id="tour3">
+
+        <div class="row section-head" style="font-size:12px">
+          <h5>Charting Analytics</h5>
+        </div>
+
+        <div id="chart" section="normalchart">
+          <!-- <iframe height = "334" width = "100%" frameborder="0" src = "https://dwq4do82y8xi7.cloudfront.net/widgetembed/?symbol=ITBIT%3ABTCUSD&interval=D&symboledit=0&saveimage=0&toolbarbg=rgba(255,%20255,%20255,%200.5)&hideideas=1&theme=Black&style=1&timezone=exchange&studies_overrides=%7B%7D&overrides=%7B%7D&enabled_features=%5B%5D&disabled_features=%5B%5D"></iframe> -->
+          <div id="chart-container"></div>
+        </div>
+      </div>
+
+      <div class="col-md-12 option-chain" id="tour4">
+          <!-- <option-table data = "optionChain" exp = "optionExps" update-fn = "updateOrderInput(ordPrice, ordAmt, ordProd)" update-fn2 = "updateExp(date)"> </option-table> -->
+          <div>
+              <div class="row section-head">
+                  <span style="float:left; padding:8px 0px 0px 20px;font-weight:normal" class="hint--bottom  hint--primary" data-hint="An option to buy assets at an agreed price on or before a particular date. &#10;In AOEX, one option represents ONE bitcoin [mutiplier 1:1].">CALLS <i style = "color:grey;font-size:12px"class="fa fa-question-circle"></i></span>
+                  <span style="float:right; padding:8px 20px 0px 0px;font-weight:normal" class="hint--bottom  hint--primary" data-hint="An option to sell assets at an agreed price on or before a particular date. &#10;In AOEX, one option represents ONE bitcoin [mutiplier 1:1].">PUTS <i style = "color:grey;font-size:12px" class="fa fa-question-circle"></i></span>
+                  <h5>Expiry Date
+
+                <div class="btn-group">
+                  <!-- <button aria-expanded="false" aria-haspopup="true" class="dropdown-toggle" data-toggle="dropdown" style="font-size:12px" type="button">
+                    Select
+                    <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu" id="expTimes" style="text-shadow: none"></ul> -->
+
+                  <button class="btn btn-primary btn-xs dropdown-toggle" type="button" data-toggle="dropdown"><!--{{exp[1].slice(0,10)}}-->
+                  <span class="caret"></span></button>
+                  <ul class="dropdown-menu exp_dropdown">
+                    <li ng-repeat = "item in optionExps"><a ng-click = "updateExp(item)">{{item}}</a></li>
+                  </ul>
+                </div>
+              </h5>
+              </div>
+
+              <table class="table scroll table-condensed" style="text-align:center;">
+                  <thead>
+                      <tr>
+                          <th>OPEN</th>
+                          <th>VOL</th>
+                          <th>LAST</th>
+                          <th>BID</th>
+                          <th>ASK</th>
+                          <th>STRIKE</th>
+                          <th>BID</th>
+                          <th>ASK</th>
+                          <th>LAST</th>
+                          <th>VOL</th>
+                          <th>OPEN</th>
+                      </tr>
+                  </thead>
+
+                  <div class="cssload-thecube" style="margin-top:30%;width:55px;height:55px;" ng-hide="optionChain.calls.length > 0">
+                      <div class="cssload-cube cssload-c1"></div>
+                      <div class="cssload-cube cssload-c2"></div>
+                      <div class="cssload-cube cssload-c4"></div>
+                      <div class="cssload-cube cssload-c3"></div>
+                  </div>
+
+                  <tbody id="EMtableC" style="width:54.55%;float:left;height:427px">
+                      <tr ng-repeat="call in optionChain.calls track by call.strike | limitTo:15" class="trade" ng-show="optionChain.calls.length > 0">
+                          <td ng-click="updateOrderInput(call.bid_price,10, call.name)" highlighter="call.ask_depth">{{call.ask_depth}}</td>
+                          <td ng-click="updateOrderInput(call.bid_price,10, call.name)" highlighter="call.volume">{{call.volume}}</td>
+                          <td ng-click="updateOrderInput(call.bid_price,10, call.name)" highlighter="call.last_price">{{call.last_price}}</td>
+                          <td ng-click="updateOrderInput(call.bid_price,10, call.name)" highlighter="call.bid_price">{{call.bid_price}}</td>
+                          <td ng-click="updateOrderInput(call.bid_price,10, call.name)" highlighter="call.ask_price">{{call.ask_price}}</td>
+                          <td>{{call.strike}}</td>
+                      </tr>
+                  </tbody>
+                  <tbody id="EMtableP" style="width:45.45%;height:427px">
+                      <tr ng-repeat="put in optionChain.puts track by put.strike | limitTo:15" class="trade">
+                          <td ng-click="updateOrderInput(put.bid_price, 10, put.name)" highlighter="put.bid_price">{{put.bid_price}}</td>
+                          <td ng-click="updateOrderInput(put.bid_price, 10, put.name)" highlighter="put.ask_price">{{put.ask_price}}</td>
+                          <td ng-click="updateOrderInput(put.bid_price, 10, put.name)" highlighter="put.last_price">{{put.last_price}}</td>
+                          <td ng-click="updateOrderInput(put.bid_price, 10, put.name)" highlighter="put.volume">{{put.volume}}</td>
+                          <td ng-click="updateOrderInput(put.bid_price, 10, put.name)" highlighter="put.ask_depth">{{put.ask_depth}}</td>
+                      </tr>
+                  </tbody>
+              </table>
+          </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <div class="col-md-12 greeks" id="tour5">
+      <greek-table data = "greekTbl" update-fn = "getTotal()"></greek-table>
+    </div>
+
+    <div class="col-md-12 positions" id="tour12">
+      <order-table data = "orderTable" update-fn = "cancelOrd(ordId)" update-fn2 = "updateOrderInput(ordPrice, ordAmt, ordProd)" update-fn3 = "closePos(ordPrice, ordAmt, ordProd)"> </order-table>
+    </div>
+  </div>
+
+  <div class="col-md-2 tradehistory">
+      <trade-history data = "orderExecutions"></trade-history>
+  </div>
+
+
+</div>
+
+<script>
+    $('#EMtableP').on('scroll', function() {
+        $('#EMtableC').scrollTop($(this).scrollTop());
+    });
+	  $('#EMtableC').on('scroll', function() {
+        $('#EMtableP').scrollTop($(this).scrollTop());
+    });
+
+    var chart = new cryptowatch.Embed('bitfinex', 'btcusd', {
+      	timePeriod: '1d',
+        customColorScheme: {
+          bg:           "0C1115",// #2F3D45
+          text:         "b2b2b2",
+          textStrong:   "e5e5e5",
+          textWeak:     "7f7f7f",
+          short:        "FD4600",
+          shortFill:    "FF672C",
+          long:         "6290FF",
+          longFill:     "002782",
+          cta:          "363D52",
+          ctaHighlight: "414A67",
+          alert:        "FFD506",
+      	}
+      });
+    chart.mount('#chart-container');
+</script>
+<!-- div col-md-4-->

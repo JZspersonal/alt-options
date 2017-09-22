@@ -1,0 +1,180 @@
+body
+{
+ margin:0px;
+
+}
+h2,h5,h6
+{
+ font-weight:bold;
+ color:#fff;
+ margin:0;
+}
+ul
+{
+ padding:0;
+ margin:0;
+}
+ul li
+{
+ list-style:none;
+}
+.table
+ {
+ margin-bottom:0px;
+ }
+.headertop
+{
+ background:#000;
+ padding:20px 0;
+}
+.headertop img
+{
+ margin-left:20px;
+}
+.headertop .headercenter
+{
+ text-align:right;
+ color:#fff;
+ font-size:12px;
+}
+.headernav
+{
+ float:right;
+}
+.headercenter .Connected
+{
+ color:#50b949;
+}
+.headertop ul
+{
+ float:right;
+ margin:10px 100px 0 0;
+}
+.headertop ul li
+{
+ float:left;
+}
+.headertop ul li a
+{
+color:#50b949;
+padding:0 10px;
+font-size:15px;
+}
+.leftpart
+{
+ padding:20px;
+}
+.leftpart1
+{
+ padding:20px 0 19px;
+}
+.green1
+{ background:#74C76D;
+}
+.green2
+{ background:#50B949;
+}
+.rightpart
+{
+ padding:10px 70px 13px;;
+}
+.rightpart h5
+{
+ margin-bottom:70px;
+}
+.rightpart .rightform
+{
+ margin-top:50px;
+}
+.tableheading
+{
+ padding:10px 0;
+}
+.currenttabing .nav-tabs
+{
+ border:none;
+ background:#50B949;
+ margin:0;
+}
+.currenttabing .nav-tabs > li > a
+{
+ background:#50B949;
+ color:#fff;
+ margin-right:0px;
+ font-weight:bold;
+ border:0;
+}
+.currenttabing .nav-tabs > li.active > a,
+.currenttabing .nav-tabs > li.active > a:hover,
+.currenttabing .nav-tabs > li.active > a:focus
+{
+ outline:none;
+ color:#50B949;
+ background:#fff;
+ border:0;
+}
+.borderstyle
+{
+ border:4px solid #777;
+}
+.borderstyletb
+{
+ border-top:4px solid #777;
+ border-bottom:4px solid #777;
+}
+.borderstylelr
+{
+ border-left:4px solid #777;
+ border-right:4px solid #777;
+}
+
+@media (max-width:991px)
+{
+ .borderstylelr
+ {
+  border:4px solid #777;
+ }
+}
+@media (max-width:580px)
+{
+ .headertop .col-xs-3,
+ .headertop .col-xs-9
+ {
+  width:100%;
+  text-align:center;
+ }
+ .headertop .col-xs-3 .img-responsive
+ {
+  margin:0px auto;
+  margin-bottom:20px;
+ }
+ .headernav
+ {
+  width:100%;
+  text-align:center;
+ }
+ .headertop ul
+ {
+  float:none;
+  text-align:center;
+  margin:0 0 20px 0;
+ }
+  .headertop ul li
+  {
+  float:none;
+  display:inline-block;
+  }
+}
+@media (max-width:480px)
+{
+ .table-condensed th,
+ .table-condensed > tbody > tr > th,
+ .table-condensed > tfoot > tr > th,
+ .table-condensed > thead > tr > td,
+ .table-condensed > tbody > tr > td,
+ .table-condensed > tfoot > tr > td
+ {
+  font-size:12px;
+  padding:2px;
+ }
+}

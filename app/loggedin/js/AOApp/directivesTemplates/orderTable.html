@@ -1,0 +1,116 @@
+
+<div>
+    <div class="row section-head">
+      <!--<h5>Current Positions</h5>-->
+      <ul class="nav nav-tabs positions-tab" id="myTab" role="tablist" style="border: none; color:black;">
+        <li class="active" role="presentation" style="width:29%">
+          <a aria-controls="home" data-toggle="tab" role="tab" show-tab = "" href="#positions" >OPEN POS.</a>
+        </li>
+        <li role="presentation" style="width:33%">
+          <a aria-controls="profile" data-toggle="tab" role="tab" show-tab = "" href="#open" >OPEN ORDER</a>
+        </li>
+        <li role="presentation" style="width:37%">
+          <a aria-controls="profile" data-toggle="tab" role="tab" show-tab = "" href="#closed" >CLOSED ORDER</a>
+        </li>
+        <!---
+          <li role="presentation"><a href="#orders3" aria-controls="profile" role="tab" data-toggle="tab">REJECTED ORDERS</a>
+          </li>
+          -->
+      </ul>
+    </div>
+
+    <div class="tab-content">
+      <!---Tab 1 -->
+      <div class="tab-pane active" role="tabpanel" id = "positions" style = "height:427px">
+        <table class="table scroll table-condensed">
+          <thead>
+            <tr>
+              <th>ASSET</th>
+              <th>SIZE</th>
+              <th>LAST</th>
+              <!-- <th>COST</th> -->
+              <th>PNL</th>
+              <th><a style = "color:white" class="hint--left  hint--primary" data-hint="Close your position immediately using Market Order.">ACTION<i class="fa fa-question-circle"></i></a></th>
+            </tr>
+          </thead>
+
+          <div class="noData" style = "height:455px" ng-show = "data.positions.length == 0">
+              <div style = "padding-top:40%;">You Don't Have Any Positions</div>
+          </div>
+
+          <div class="cssload-thecube" ng-hide = " data.positions.length == 0 || data.positions.length >= 1 ">
+              <div class="cssload-cube cssload-c1"></div>
+              <div class="cssload-cube cssload-c2"></div>
+              <div class="cssload-cube cssload-c4"></div>
+              <div class="cssload-cube cssload-c3"></div>
+          </div>
+
+          <tbody id="CPtable" style = "height:427px">
+            <tr ng-repeat = "order in data.positions track by $index" ng-click = "updateFn2({ordPrice: order.last_price,ordAmt: order.amount, ordProd: order.product})" ng-show= "data.positions.length >= 1">
+              <td>{{order.product}}</td>
+              <td>{{order.amount | number:2}}</td>
+              <td highlighter ="order.last_price">{{order.last_price | currency}}</td>
+              <!-- <td highlighter ="order.last_price">{{order.avg_cost | currency}}</td> -->
+              <td highlighter ="order.last_price" ng-style="(order.last_price - order.avg_cost)* order.amount >= 0 && {'color':'#50B949'} || (order.last_price - order.avg_cost)* order.amount < 0 && {'color':'#FF6939'}">
+              {{(order.last_price - order.avg_cost)* order.amount | currency}}</td>
+              <td><button class="btn btn-danger cancelBtn" ng-click = "updateFn3({ordPrice: order.last_price,ordAmt: order.amount, ordProd: order.product})">CLOSE</button></td>
+              <!-- <i ng-class="(order.last_price - order.avg_cost)* order.amount >= 0 ? 'fa fa-caret-up' : 'fa fa-caret-down'"></i> -->
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!---Tab 2 -->
+      <div class="tab-pane" role="tabpanel" id = "open">
+
+        <table class="table scroll table-condensed">
+          <thead>
+            <tr>
+              <th>ASSET</th>
+              <th>TYPE</th>
+              <th>PRICE</th>
+              <th>AMOUNT</th>
+              <th>ACTION</th>
+            </tr>
+          </thead>
+
+          <tbody id="POtable" style = "height:427px">
+            <tr ng-repeat = "order in data.open track by $index">
+              <td>{{order.product}}</td>
+              <td>{{order.order_type}}</td>
+              <td>{{order.price | currency}}</td>
+              <td>{{order.original_amount}}</td>
+              <td><button class="btn btn-danger cancelBtn" ng-click = "updateFn({ordId: order.id})">CANCEL</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!--Tab 3 -->
+      <div class="tab-pane" role="tabpanel" id = "closed">
+        <table class="table scroll table-condensed">
+          <thead>
+            <tr>
+              <th>ASSET</th>
+              <th>TYPE</th>
+              <th>PRICE</th>
+              <th>AMOUNT</th>
+              <th>TIME</th>
+            </tr>
+          </thead>
+
+          <tbody id="POtable2" style = "height:427px">
+            <tr ng-repeat = "order in data.closed | limitTo: 20">
+              <td>{{order.product}}</td>
+              <td>{{order.order_type}}</td>
+              <td>{{order.price | closed}}</td>
+              <td>{{order.original_amount}}</td>
+              <td>{{order.create_time | date:'HH:mm:ss'}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,397 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <title>Alt-Options | Beta Testing Program Login</title>
+    <meta property="og:title" content="Alt-Options | The Bitcoin Options Market" />
+    <meta property="og:type" content="company" />
+    <meta property="og:site_name" content=" Alt-Options | The Bitcoin Options Market" />
+    <meta property="og:url" content="www.alt-options.com" />
+    <meta property="og:image" content="" />
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <!-- <link href="css/agency.css" rel="stylesheet"> -->
+    <link href="css/reg.css" rel="stylesheet">
+
+
+    <!-- Custom Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,300,400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+
+    <script>
+        function preCheck() {
+                    if (localStorage.getItem('token') !== null && localStorage.getItem("status") == "Active") {
+                        document.location.href = "loggedin/body.php?view=trading";
+                    }
+                }
+
+        window.onpaint = preCheck();
+
+
+    </script>
+
+</head>
+
+<body>
+    <div class="error-notice">
+        <div id = "alert" class="oaerror danger" hidden>
+          <button type="button" class="close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+          <div id = "alert-content"></div>
+          <!-- <button class="alert-btn">dismiss</button> -->
+        </div>
+        <div id = "success" class="oaerror success" hidden>
+          <button type="button" class="close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+          <div id = "success-content"></div>
+          <!-- <button class="alert-btn">dismiss</button> -->
+        </div>
+    </div>
+
+    <div id = "loginpage" class="main-body">
+        <img src="img/logo_standalone.png" width="17.5%" style="margin-top: 65px;">
+        <br>
+        <div style = "color:white;text-align:center;font-size:25px;font-weight:300;margin-bottom: 25px;">
+          Global Trading Competition
+        </div>
+        <div class="container-fluid">
+            <div class="title" style="margin: auto;">
+                <br>Login
+            </div>
+            <form id="loginForm" role="form" novalidate>
+
+                <br>
+                <div class="row">
+                    <img src="img/login/email_box.png">
+                    <input type="text" name="email" id="email" placeholder="Your Email">
+                </div>
+
+                <div class="row">
+                    <img src="img/login/pass_box.png">
+                    <input type="password" name="password" id="password" placeholder="Your Password"><br>
+                    <div style="font-size:13px;">Forget your password? Click <a href = "#" id ="resetPassword" style="hover:pointer;height:20px">here</a> to reset.</div>
+                </div>
+                <br>
+
+                <div class="row">
+                    <label>2FA Token (If Enabled)</label>
+                    <br>
+                    <img src="img/login/pass_box.png">
+                    <input type="text" name="2FA_Code" id="2FA_Code" placeholder="Two Factor Authentication Code"><br>
+                    <br>
+                </div>
+                <div class ="row" id ="2FA_Sender" hidden>
+               <!-- <button id ="sms_2FA" style ="color:#ffff;width:100px" class="btn-success btn-md btn">Email me</button>
+                    <button id ="email_2FA" style ="color:#ffff;width:100px" class="btn-success btn-md btn">Text me</button> -->
+                    <button id ="verify_2FA" style ="color:#ffff;width:100px" class="btn-info btn-md" disabled><i class="fa fa-check-circle-o" style="color:white"></i>Verify</button>
+                    <button id ="resend_2FA" style ="color:#ffff;" class="btn-info btn-md" disabled><i class="fa fa-spinner fa-spin" style="color:white"></i>Resend</button>
+                </div>
+                <br>
+
+                <div class="row">
+                    <button id ="login" style ="color:#ffff;width:100px" class="btn-success btn-md btn">Sign in</button>
+                </div>
+            </form>
+
+                <div class="row">
+                    <div style="text-align:center; color:white; width: 100%;font-size:12; margin-top:15px; margin-bottom:10px;">
+                        Please contact us if you have any questions:<br>
+                        Email:<a href='mailto:info@alt-options.com'>info@alt-options.com</a> |
+                        Skype: <i class="fa fa-skype" style="color:white"></i><a href="skype:?chat&blob=GD5SgnYR-PSiCA4rza029kA5wMrDpRzaFdkY8_a0A6UC2GJC3BreoWtR3aRWVhQbRUWSh_3k8D954fchCfrOKkZ8">Alt-Options</a><br>
+                        Don't have an account? click <a href="register.php" class="btn btn-primary btn-xs" style="height:20px">REGISTER</a><br>
+                    </div>
+                </div>
+
+        </div>
+    </div>
+
+
+    <div id = "resetpage" class="main-body" hidden>
+        <img src="img/logo_standalone.png" width="20%" style="margin-top: 30px;">
+        <br>
+        <div class="container-fluid">
+            <div class="title" style="margin: auto;">
+                <br>Reset Password
+            </div>
+            <form id="resetForm" role="form" novalidate>
+
+                <br>
+                <div class="row">
+                    <img src="img/login/email_box.png">
+                    <input type="text" name="email" id="ra_email" placeholder="Your username or email">
+                </div>
+
+                <!-- <div class="row">
+                    <img src="img/login/pass_box.png">
+                    <input type="password" name="RAcode" id="RAcode" placeholder="Authentication Code Received"><br>
+                    <div style="font-size:12px;">Forget your password? Click <a href = "#"id ="resetPassword" style="hover:pointer;height:20px">here</a> to reset.</div>
+                </div> -->
+                <br>
+                <div id ="RA_Sender" hidden>
+                  <div class="row">
+                      <label>Reset Code</label>
+                      <br>
+                      <img src="img/login/pass_box.png">
+                      <input type="text"  id="RA_Code" placeholder="Received Authentication Code"><br>
+                      <br>
+                  </div>
+                  <div class="row">
+                      <label>New Password</label>
+                      <br>
+                      <img src="img/login/pass_box.png">
+                      <input type="password" id="new_password" placeholder="Your new password"><br>
+                      <br>
+                  </div>
+                  <div class="row">
+                      <label>Confirm Password</label>
+                      <br>
+                      <img src="img/login/pass_box.png">
+                      <input type="password" id="new_password_confirm" placeholder="Confirm your new password"><br>
+                      <br>
+                  </div>
+                  <div class ="row">
+  <!--                    <button id ="sms_2FA" style ="color:#ffff;width:100px" class="btn-success btn-md btn">Email me</button>
+                      <button id ="email_2FA" style ="color:#ffff;width:100px" class="btn-success btn-md btn">Text me</button> -->
+                      <button id ="verify_RA" style ="color:#ffff;width:100px" class="btn-info btn-md" disabled><i class="fa fa-check-circle-o" style="color:white"></i>Reset</button>
+                      <button id ="resend_RA" style ="color:#ffff;" class="btn-info btn-md" disabled><i class="fa fa-spinner fa-spin" style="color:white"></i>Resend</button>
+                  </div>
+               </div>
+                <div class="row">
+                    <button id ="reset" style ="color:#ffff;width:150px" class="btn-success btn-md btn">Send Reset Link</button>
+                </div>
+            </form>
+
+                <div class="row">
+                    <div style="text-align:center; color:white; width: 100%;font-size:12; margin-top:15px; margin-bottom:10px;">
+                        Please contact us if you have any questions:<br>
+                        Email:<a href='mailto:info@alt-options.com'>info@alt-options.com</a> |
+                        Skype: <i class="fa fa-skype" style="color:white"></i><a href="skype:?chat&blob=GD5SgnYR-PSiCA4rza029kA5wMrDpRzaFdkY8_a0A6UC2GJC3BreoWtR3aRWVhQbRUWSh_3k8D954fchCfrOKkZ8">Alt-Options</a><br>
+                        Don't have an account? click <a href="register.php" class="btn btn-primary btn-xs" style="height:20px">REGISTER</a><br>
+                    </div>
+                </div>
+
+        </div>
+    </div>
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+    <script>
+        $("#resetPassword").click(function () {
+          document.getElementById('resetpage').style.display = "block";
+          document.getElementById('loginpage').style.display = "none";
+        });
+
+        $("#login").click(function () {
+
+            $.ajax({
+                type: "POST",
+                url: "https://aos-comp.alt-options.com/public/create_session",
+                dataType: "json",
+                data: JSON.stringify({
+                    email: $("#email").val(), /*"admin@example.com"*/
+                    password: $("#password").val() /*"admin"*/
+                })
+
+            }).done(function (data) {
+                if (String(data.result) == "Success") {
+
+                    localStorage.setItem('token', data.auth_token);
+
+                    if (data.status == "Active") {
+
+                        localStorage.setItem('status', data.status); //if data.status is active, set localstorage.
+                        document.location.href = "loggedin/body.php?view=trading"; //go to trading page - precheck()
+
+                    } else if (data.status == "AwaitingTFAMethod"){
+                        localStorage.setItem('status', data.status);
+                        document.getElementById('2FA_Sender').style.display = "block";
+                        document.getElementById('verify_2FA').disabled = false;
+                        document.getElementById('resend_2FA').disabled = false;
+
+                         $.ajax({
+                            type: "POST",
+                            url: "https://aos-comp.alt-options.com/public/send_tfa_code",
+                            dataType: "json",
+                            data: JSON.stringify({
+                                auth_token: localStorage.getItem('token'),
+                                method: "Email",
+                            })
+                        }).done(function (data) {
+                            // callback(data);
+                            document.getElementById("success-content").innerHTML = "2FA code has been sent to your email. Please check your inbox!"
+                            document.getElementById("success").style.display = 'block';
+                        });
+                    }
+
+                } else {
+                  document.getElementById("alert-content").innerHTML = "Incorrect email or password, please try again!"
+                  document.getElementById("alert").style.display = 'block';
+                }
+            });
+
+            return false;
+
+        });
+
+
+        $("#verify_2FA").click(function () {
+
+            $.ajax({
+                type: "POST",
+                url: "https://aos-comp.alt-options.com/public/verify_tfa_code",
+                dataType: "json",
+                data: JSON.stringify({
+                    auth_token: localStorage.getItem('token'),
+                    code: $("#2FA_Code").val(),
+                })
+            }).done(function (data) {
+                if (data.result == "Success") {
+                    localStorage.setItem('status', "Active");
+                    document.location.href = "loggedin/body.php?view=trading";
+                } else {
+                    document.getElementById("alert-content").innerHTML = "Incorrect 2FA authentication code, please resend or enter it again!"
+                    document.getElementById("alert").style.display = 'block';
+                }
+
+            });
+
+            return false;
+
+        });
+
+        $("#resend_2FA").click(function () {
+
+            $.ajax({
+                type: "POST",
+                url: "https://aos-comp.alt-options.com/public/send_tfa_code",
+                dataType: "json",
+                data: JSON.stringify({
+                    auth_token: localStorage.getItem('token'),
+                    method: "Email",
+                })
+
+            }).done(function (data) {
+                    // alert("Your 2FA code has been resent, please check your email!");
+                    document.getElementById("success-content").innerHTML = "Your 2FA code has been resent, please check your email!"
+                    document.getElementById("success").style.display = 'block';
+            });
+
+            return false;
+
+        });
+
+    </script>
+
+  <script>
+
+  $("#reset").click(function () {
+
+      $.ajax({
+          type: "POST",
+          url: "https://aos-comp.alt-options.com/public/send_pw_reset_code",
+          dataType: "json",
+          data: JSON.stringify({
+              email: $("#ra_email").val(), /*"admin@example.com"*/
+          })
+
+      }).done(function (data) {
+          if (String(data.result) == "Success") {
+
+              document.getElementById("success-content").innerHTML = "Request success! We've just sent a reset confirmation email to your email address! Please find the validation code in the email."
+              document.getElementById("success").style.display = 'block';
+              document.getElementById('reset').remove();
+              document.getElementById('RA_Sender').style.display = "block";
+              document.getElementById('verify_RA').disabled = false;
+              document.getElementById('resend_RA').disabled = false;
+
+              }  else {
+                document.getElementById("alert-content").innerHTML = "Incorrect email or password! Please try again!"
+                document.getElementById("alert").style.display = 'block';
+          }
+      });
+
+      return false;
+
+  });
+
+  $("#verify_RA").click(function () {
+      var npsw = $("#new_password").val();
+      var npsw_confirm = $("#new_password_confirm").val();
+      if ( npsw !== npsw_confirm) {
+        // alert("Please double check the password you just entered. The password doesn't match with the confirmation password!")
+        document.getElementById("alert-content").innerHTML = "Please double check the password you just entered. The password doesn't match with the confirmation password!"
+        document.getElementById("alert").style.display = 'block';
+      } else {
+        $.ajax({
+            type: "POST",
+            url: "https://aos-comp.alt-options.com/public/reset_pw",
+            dataType: "json",
+            data: JSON.stringify({
+                email: $("#ra_email").val(),
+                code:$("#RA_Code").val(),
+                new_password:npsw
+            })
+
+        }).done(function (data) {
+            if (String(data.result) == "Success") {
+
+                document.getElementById("success-content").innerHTML = "Password has been successfully changed, please use the new password to log in!"
+                document.getElementById("success").style.display = 'block';
+                document.getElementById('resetpage').style.display = "none";
+                document.getElementById('loginpage').style.display = "block";
+
+                }  else {
+                  document.getElementById("alert-content").innerHTML = "Sorry! Something went wrong, please refresh this page and try again!"
+                  document.getElementById("alert").style.display = 'block';
+            }
+        });
+      }
+      return false;
+  });
+
+  $("#resend_RA").click(function () {
+
+      $.ajax({
+          type: "POST",
+          url: "https://aos-comp.alt-options.com/public/send_pw_reset_code",
+          dataType: "json",
+          data: JSON.stringify({
+              email: $("#ra_email").val(), /*"admin@example.com"*/
+          })
+
+      }).done(function (data) {
+          if (String(data.result) == "Success") {
+              // alert("We just sent another confirmation email with the reset code to your email. Please check your inbox!")
+              document.getElementById("success-content").innerHTML = "We just sent another confirmation email with the reset code to your email. Please check your inbox!"
+              document.getElementById("success").style.display = 'block';
+              }  else {
+                document.getElementById("alert-content").innerHTML = "Incorrect email or password! Please try again!"
+                document.getElementById("alert").style.display = 'block';
+          }
+      });
+
+      return false;
+
+  });
+
+  $('.error-notice .close').click(function(e) {
+      e.preventDefault();
+      $(this).closest('#alert').slideUp();
+      $(this).closest('#success').slideUp();
+  });
+
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Alt-Options | Cryptocurrency & Derivative Trading</title>
+	<meta name="description" content="Alt-Options is the most professional CryptoCurrency & Derivative exchange technology solution provider! Also the only exchange that offers American Options Trading. Start your own exchange today!" />
+	<meta name="keywords" content="Bitcoin Options, Trade Bitcoin Options, Bitcoin American Options, Bitcoin Call Options, Bitcoin Put Options, Bitcoin Volatility ,Bitcoin Derivative Exchange, Bitcoin Trading, Bitcoin Forwards, Bitcoin Swaps, Professional Options Pricing, Bitcoin Clearing House, Cryptocurrency Pricing Model, Bitcoin Options Pricing" />
+	<meta name="author" content="Alt-Options,J" />
+	<meta property="og:title" content="Alt-Options | Cryptocurrency & Derivative Trading Technology" />
+	<meta property="og:type" content="company" />
+	<meta property="og:site_name" content=" Alt-Options | Cryptocurrency & Derivative Trading Technology" />
+	<meta property="og:url" content="alt-options.com" />
+	<!-- Favicons (created with http://realfavicongenerator.net/)-->
+	<!-- <link rel="apple-touch-icon" sizes="57x57" href="img/favicons/apple-touch-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="img/favicons/apple-touch-icon-60x60.png">
+	<link rel="icon" type="image/png" href="img/favicons/favicon-32x32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="img/favicons/favicon-16x16.png" sizes="16x16"> -->
+	<!-- <link rel="manifest" href="img/favicons/manifest.json">
+	<link rel="shortcut icon" href="img/favicons/favicon.ico">
+	<meta name="msapplication-TileColor" content="#00a8ff"> -->
+	<!-- <meta name="msapplication-config" content="img/favicons/browserconfig.xml"> -->
+	<meta name="theme-color" content="#ffffff">
+	<!-- Normalize -->
+	<link rel="stylesheet" type="text/css" href="css/new/normalize.css">
+	<!-- Bootstrap -->
+	<link rel="stylesheet" type="text/css" href="css/new/bootstrap.css">
+	<!-- Owl -->
+	<link rel="stylesheet" type="text/css" href="css/new/owl.css">
+	<!-- Animate.css -->
+	<link rel="stylesheet" type="text/css" href="css/new/animate.css">
+	<!-- Font Awesome -->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.1.0/css/font-awesome.min.css">
+	<!-- Elegant Icons -->
+	<link rel="stylesheet" type="text/css" href="fonts/eleganticons/et-icons.css">
+	<!-- Main style -->
+	<link rel="stylesheet" type="text/css" href="css/new/cardio.css">
+</head>
+
+<body>
+	<div class="preloader">
+		<img src="img/loader.gif" alt="Preloader image">
+	</div>
+	<nav class="navbar">
+		<div class="container">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#"><img src="img/logo_standalone.png" width = "200px" data-active-url="img/logo_standalone.png" alt=""></a>
+			</div>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav navbar-right main-nav">
+					<li><a href="#intro">Intro</a></li>
+					<li><a href="#services">Services</a></li>
+					<!-- <li><a href="#team">Team</a></li> -->
+					<li><a href="#pricing">Pricing</a></li>
+					<li><a href="/app/">Sign In</a></li>
+					<li><a href="register.php" class="btn btn-green">Sign Up</a></li>
+					<!-- data-toggle="modal" data-target="#modal1" -->
+				</ul>
+			</div>
+			<!-- /.navbar-collapse -->
+		</div>
+		<!-- /.container-fluid -->
+	</nav>
+	<header id="intro">
+		<div class="container">
+			<div class="table">
+				<div class="header-text">
+					<div class="row">
+						<div class="col-md-12 text-center">
+							<h3 class="light white">Cryptocurrency & Derivative Trading Solution</h3>
+							<h2 class="white typed">The only platform you need</h2>
+							<span class="typed-cursor">|</span></p>
+							<a href = "/app/" class = "btn btn-green-border">VIEW DEMO</a>
+							<a href = "skype:?chat&blob=GD5SgnYR-PSiCA4rza029kA5wMrDpRzaFdkY8_a0A6UC2GJC3BreoWtR3aRWVhQbRUWSh_3k8D954fchCfrOKkZ8" class = "btn btn-green-border">CONTACT US</a>
+						</div>
+						<div id="noise" data-ix="navbar-op" class="w-section header-skry">
+							<canvas id="defaultCanvas0" class="" width="0" height="0" style="width: auto; height: auto;"></canvas>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</header>
+
+	<section id="services" class="section section-padded">
+		<div class="container">
+			<div class="row text-center title">
+				<h2>Services</h2>
+				<h4 class="light muted">Achieve the best results with our wide variety of technology options!</h4>
+			</div>
+			<div class="row services" style = "margin-top: -15px">
+				<div class="col-md-4">
+					<div class="service">
+						<div class="icon-holder">
+							<img src="img/icons/analytics-icon.png" alt="" class="icon grayscale">
+						</div>
+						<h4 class="heading">Analytics Engine</h4>
+						<p class="description">Professional analytic tools power traders' confidence.</p>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="service">
+						<div class="icon-holder">
+							<img src="img/icons/performance-icon.png" alt="" class="icon grayscale">
+						</div>
+						<h4 class="heading">High Performance</h4>
+						<p class="description">High speed matching engine cross orders at lightning speed.</p>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="service">
+						<div class="icon-holder">
+							<img src="img/icons/currency-icon.png" alt="" class="icon grayscale">
+						</div>
+						<h4 class="heading">Multiple Products </h4>
+						<p class="description">Scalability of mutiple currencies and asset classes.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="cut cut-bottom"></div>
+	</section>
+	<!-- <section id="team" class="section gray-bg">
+		<div class="container">
+			<div class="row title text-center">
+				<h2 class="margin-top">Team</h2>
+				<h4 class="light muted">We're a dream team!</h4>
+			</div>
+			<div class="row">
+				<div class="col-md-4">
+					<div class="team text-center">
+						<div class="cover" style="background:url('img/team/team-cover1.jpg'); background-size:cover;">
+							<div class="overlay text-center">
+								<h3 class="white">$69.00</h3>
+								<h5 class="light light-white">1 - 5 sessions / month</h5>
+							</div>
+						</div>
+						<img src="img/team/team3.jpg" alt="Team Image" class="avatar">
+						<div class="title">
+							<h4>Ben Adamson</h4>
+							<h5 class="muted regular">Fitness Instructor</h5>
+						</div>
+						<button data-toggle="modal" data-target="#modal1" class="btn btn-green-fill">Sign Up Now</button>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="team text-center">
+						<div class="cover" style="background:url('img/team/team-cover2.jpg'); background-size:cover;">
+							<div class="overlay text-center">
+								<h3 class="white">$69.00</h3>
+								<h5 class="light light-white">1 - 5 sessions / month</h5>
+							</div>
+						</div>
+						<img src="img/team/team1.jpg" alt="Team Image" class="avatar">
+						<div class="title">
+							<h4>Eva Williams</h4>
+							<h5 class="muted regular">Personal Trainer</h5>
+						</div>
+						<a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-green-fill ripple">Sign Up Now</a>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="team text-center">
+						<div class="cover" style="background:url('img/team/team-cover3.jpg'); background-size:cover;">
+							<div class="overlay text-center">
+								<h3 class="white">$69.00</h3>
+								<h5 class="light light-white">1 - 5 sessions / month</h5>
+							</div>
+						</div>
+						<img src="img/team/team2.jpg" alt="Team Image" class="avatar">
+						<div class="title">
+							<h4>John Phillips</h4>
+							<h5 class="muted regular">Personal Trainer</h5>
+						</div>
+						<a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-green-fill ripple">Sign Up Now</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section> -->
+	<section id="pricing" class="section">
+		<div class="container">
+			<div class="row title text-center">
+				<h2 class="margin-top white">Pricing</h2>
+				<h4 class="light white">Tailor a flexible pricing plan that suits your need!</h4>
+			</div>
+			<div class="row no-margin">
+				<div class="col-md-8 no-padding col-md-offset-2 pricings text-center">
+					<div class="pricing">
+						<div class="box-main active" data-img="img/pricing-bg.jpeg">
+							<h4 class="white">Customized Solutions</h4>
+							<h4 class="white regular light">Customized<span class="small-font"> Price</span></h4>
+							<a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-white-fill">Consult Us Now</a>
+							<i class="info-icon icon_question"></i>
+						</div>
+						<div class="box-second active">
+							<ul class="white-list text-left">
+								<li>Consulting Service</li>
+								<li>High Performance Exchange</li>
+								<li>Analytic &amp; Charting Tools</li>
+								<li>Certified AML Program</li>
+								<li>HFT Trading Robot</li>
+							</ul>
+						</div>
+					</div>
+					<div class="pricing">
+						<div class="box-main" data-img="img/pricing-bg.jpeg">
+							<h4 class="white">Private Label</h4>
+							<h4 class="white regular light">$5000.00+<span class="small-font">/month</span></h4>
+							<a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-white-fill">Consult Us Now</a>
+							<i class="info-icon icon_question"></i>
+						</div>
+						<div class="box-second">
+							<ul class="white-list text-left">
+								<li>Spot &amp; Derivative Exchange</li>
+								<li>Matching Engine</li>
+								<li>Analytics Tools</li>
+								<li>Customer KYC</li>
+								<li>2 Factor Security(2FA)</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="section section-padded blue-bg">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2">
+					<div class="owl-twitter owl-carousel">
+						<div class="item text-center">
+							<a href="http://fintechsandbox.org/">
+									<img src="img/media/fss.png" class="media-logo" alt="">
+							</a>
+							<h4 class="white light">Fintech Sandbox Accelarated Startup</h4>
+							<h4 class="light-white light">#data #cryptocurrency #fintech</h4>
+						</div>
+						<div class="item text-center">
+							<a href="http://goo.gl/myQLgw">
+									<img src="img/media/bbj.png" class="media-logo" alt="">
+							</a>
+							<h4 class="white light">Business Journal Top 7 Fintech Company</h4>
+							<h4 class="light-white light">#startup #innovation #derivative</h4>
+						</div>
+						<div class="item text-center">
+							<a href="http://goo.gl/UsgBhU">
+									<img src="img/media/em.png" class="media-logo" alt="">
+							</a>
+							<h4 class="white light">Euromoney: Bitcoin options come a step closer</h4>
+							<h4 class="light-white light">#bitcoin #options #trading</h4>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content modal-popup">
+				<a href="#" class="close-link"><i class="icon_close_alt2"></i></a>
+				<h3 class="white">Sign Up</h3>
+				<form action="" class="popup-form">
+					<input type="text" class="form-control form-white" placeholder="Full Name">
+					<input type="text" class="form-control form-white" placeholder="Email Address">
+					<div class="dropdown">
+						<button id="dLabel" class="form-control form-white dropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Pricing Plan
+						</button>
+						<ul class="dropdown-menu animated fadeIn" role="menu" aria-labelledby="dLabel">
+							<li class="animated lightSpeedIn"><a href="#">1 month membership ($150)</a></li>
+							<li class="animated lightSpeedIn"><a href="#">3 month membership ($350)</a></li>
+							<li class="animated lightSpeedIn"><a href="#">1 year membership ($1000)</a></li>
+							<li class="animated lightSpeedIn"><a href="#">Free trial class</a></li>
+						</ul>
+					</div>
+					<div class="checkbox-holder text-left">
+						<div class="checkbox">
+							<input type="checkbox" value="None" id="squaredOne" name="check" />
+							<label for="squaredOne"><span>I Agree to the <strong>Terms &amp; Conditions</strong></span></label>
+						</div>
+					</div>
+					<button type="submit" class="btn btn-submit">Submit</button>
+				</form>
+			</div>
+		</div>
+	</div> -->
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-6 text-center-mobile">
+					<h3 class="white">Set Up A Free Demo Today!</h3>
+					<h5 class="light regular light-white">Experience our product in real time.</h5>
+					<a href="/app/" class="btn btn-green ripple trial-button">Free Demo</a>
+				</div>
+				<div class="col-sm-6 text-center-mobile">
+					<h3 class="white">Opening Hours <span class="open-blink"></span></h3>
+					<div class="row opening-hours">
+						<div class="col-sm-6 text-center-mobile">
+							<h5 class="light-white light">Mon - Fri</h5>
+							<h3 class="regular white">10:00 - 22:00</h3>
+						</div>
+						<div class="col-sm-6 text-center-mobile">
+							<h5 class="light-white light">695 Atlantic Avenue.</p>9th Fl, DCU Center</h5>
+							<h5 class="regular white">Boston, MA 02111</h5>
+							<abbr title="Email"><a href="mailto:info@alt-options.com">info@alt-options.com</a></abbr><br>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row bottom-footer text-center-mobile">
+				<div class="col-sm-8">
+					<p>&copy; 2014-2016 Copyright &copy; Alt-Options, LLC</p>
+				</div>
+				<div class="col-sm-4 text-right text-center-mobile">
+					<ul class="social-footer">
+						<li><a href="mailto:info@alt-options.com"><i class="fa fa-envelope"></i></a>
+						</li>
+						<li><a href="https://twitter.com/AltOptionsLLC" target="_blank"><i class="fa fa-twitter"></i></a>
+						</li>
+						<li><a href="https://www.facebook.com/altoptionsfinancial/" target="_blank"><i class="fa fa-facebook"></i></a>
+						</li>
+						<li><a href="https://www.linkedin.com/company/altoptions" target="_blank"><i class="fa fa-linkedin"></i></a>
+						</li>
+						<li><a href="https://plus.google.com/109927380508450589553" rel="publisher" target="_blank"><i class="fa fa-google-plus"></i></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- Holder for mobile navigation -->
+	<div class="mobile-nav">
+		<ul>
+		</ul>
+		<a href="#" class="close-link"><i class="arrow_up"></i></a>
+	</div>
+	<!-- Scripts -->
+	<script src="//cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.17/p5.js"></script>
+	<script src="js/new/jquery-1.11.1.min.js"></script>
+	<script src="js/new/owl.carousel.min.js"></script>
+	<script src="js/new/bootstrap.min.js"></script>
+	<script src="js/new/wow.min.js"></script>
+	<script src="js/new/typewriter.js"></script>
+	<script src="js/new/jquery.onepagenav.js"></script>
+	<script src="js/new/main.js"></script>
+	<script>
+	var noisebox;
+	var noiseW, noiseH;
+	var num;
+	var agents = [];
+	var col = [];
+	var fieldIntensity = 10,
+	  noiseScale = 500,
+	  radius = 250,
+	  stepSize = 1;
+	var showText = true;
+	var a = .15,
+	  bg = 20,
+	  c = 0;
+
+
+	function setup() {
+	  noisebox = document.getElementById('noise');
+	  noiseW = noisebox.windowWidth;
+	  noiseH = noisebox.offsetHeight;
+	  var canvas = createCanvas(windowWidth, 850);
+	   	canvas.parent('noise');
+	  // background(bg);
+	  num = 200;
+	  createStuff();
+	  initColors(a);
+	  window.setTimeout(function(){noLoop(); console.log('finished'); }, 7500);
+	}
+
+	function draw() {
+	  for (var i = 0; i < agents.length; i++) {
+	    agents[i].update();
+	    agents[i].paint();
+	  }
+	  if (frameCount % 100 === 0) c++;
+	}
+
+	function createStuff() {
+	  agents = [];
+	  var step = 15;
+	  for (var x = width / 2 - radius; x < width / 2 + radius; x += step) {
+	    for (var y = height / 2 - radius; y < height / 2 + radius; y += step) {
+	      var distance = dist(x, y, width / 2, height / 2);
+	      if (distance < radius) {
+	        agents.push(new Agent(createVector(x, y)));
+	      }
+	    }
+	  }
+	}
+
+	function Agent(position) {
+	  this.angle = random(TWO_PI);
+	  this.stepSize = stepSize;
+	  this.position = position;
+	  this.outside = false;
+
+	  this.update = function() {
+	    this.angle = noise(this.position.x / noiseScale, this.position.y / noiseScale) * fieldIntensity;
+	    this.position.x += cos(this.angle) * this.stepSize;
+	    this.position.y += sin(this.angle) * this.stepSize;
+	  }
+
+	  this.paint = function() {
+	    fill(col[c % col.length]);
+	    noStroke();
+	    ellipse(this.position.x, this.position.y, this.stepSize, this.stepSize);
+	  }
+	}
+
+	function init() {
+	  //background(bg);
+	  noiseSeed(random(9999));
+	  c = 0;
+	  initColors(a);
+	  createStuff(col);
+	}
+
+	function initColors(alphaValue) {
+	  col = [color('rgba(80,185,73,' + alphaValue + ')'), color('rgba(13,175,122,' + alphaValue + ')'), color('rgba(13,175,122,' + alphaValue + ')'), color('rgba(13,175,122,' + alphaValue + ')')];
+	}
+
+	function windowResized() {
+	  noiseW = noisebox.windowWidth;
+	  noiseH = noisebox.offsetHeight;
+	  resizeCanvas(windowWidth, 850);
+	}
+
+	// document.getElementById("defaultCanvas0").style.visibility = "hidden";
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,219 @@
+<div class="col-md-7">
+    <div class="container">
+        <div class="row section-head">
+            <h5>Risk Chart</h5>
+        </div>
+        <div section="riskchart" id="risk">
+            <div class="col-md-12 option-chain">
+                <div id="graph" style="width:100%; height:340px; background:#1E2B34;"></div>
+            </div>
+            <div id="tour4" class="col-md-12 option-chain">
+                <!-- Market data header -->
+                <div class="row section-head">
+                    <span style="float:left; padding:8px 0px 0px 20px;">CALLS</span>
+                    <span style="float:right; padding:8px 20px 0px 0;">PUTS</span>
+                    <h5>Expiry Month
+
+
+              <div class="btn-group">
+                  <button type="button" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size:12px">
+                      Select <span class="caret"></span>
+                  </button>
+                  <ul id="expTimes" class="dropdown-menu" style="text-shadow: none">
+                  </ul>
+              </div>
+              </h5>
+                </div>
+
+                <!-- Market data table -->
+                <table class="table scroll table-condensed" style="text-align:center;">
+                    <thead>
+                        <tr id="option-chain-analytics">
+                            <th>ANALYZE</th>
+                            <th>OPEN</th>
+                            <th>VOL</th>
+                            <th>LAST</th>
+                            <th>BID</th>
+                            <th>ASK</th>
+                            <th>STRIKE</th>
+                            <th>BID</th>
+                            <th>ASK</th>
+                            <th>LAST</th>
+                            <th>VOL</th>
+                            <th>OPEN</th>
+                            <th>ANALYZE</th>
+                        </tr>
+                    </thead>
+                    <tbody id="EMtableCA" style="width:54.55%;float:left;"></tbody>
+                    <tbody id="EMtablePA" style="width:45.45%;"></tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="col-md-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12s scenario-section">
+                <div class="row section-head">
+                    <h5>Scenario Analysis</h5>
+                </div>
+                <table class="table scroll table-condensed" style="display:table-header-group" id="sensitivites-table">
+                    <thead>
+                        <tr>
+                            <th>T/P</th>
+                            <th>
+                                <script>
+                                    document.write(Date.today().toString("M/d"));
+                                </script>
+                            </th>
+                            <th>
+                                <script>
+                                    document.write(Date.today().addDays(1).toString("M/d"));
+                                </script>
+                            </th>
+                            <th>
+                                <script>
+                                    document.write(Date.today().addDays(2).toString("M/d"));
+                                </script>
+                            </th>
+                            <th>
+                                <script>
+                                    document.write(Date.today().addDays(3).toString("M/d"));
+                                </script>
+                            </th>
+                            <th>
+                                <script>
+                                    document.write(Date.today().addDays(4).toString("M/d"));
+                                </script>
+                            </th>
+                            <th>
+                                <script>
+                                    document.write(Date.today().addDays(5).toString("M/d"));
+                                </script>
+                            </th>
+                            <th>
+                                <script>
+                                    document.write(Date.today().addDays(6).toString("M/d"));
+                                </script>
+                            </th>
+                            <th>
+                                <script>
+                                    document.write(Date.today().addDays(7).toString("M/d"));
+                                </script>
+                            </th>
+                            <th>
+                                <script>
+                                    document.write(Date.today().addDays(8).toString("M/d"));
+                                </script>
+                            </th>
+                            <th>
+                                <script>
+                                    document.write(Date.today().addDays(9).toString("M/d"));
+                                </script>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody id="sensitivites-table-tbody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-5 option-chain">
+                <div class="row section-head">
+                    <h5>Position Added</h5>
+                </div>
+                <div id="analyerPositions" style="width:100%;background:#1E2B34;">
+                    <table class="table scroll table-condensed">
+                        <thead>
+                            <tr>
+                                <th>ASSET</th>
+                                <th>AMOUNT</th>
+                                <th>ACTION</th>
+                            </tr>
+                        </thead>
+                        <tbody id="analyzerAdded" style="height:250px;"></tbody>
+                    </table>
+                </div>
+
+
+            </div>
+
+            <div class="col-md-7 option-chain">
+                <div class="row section-head">
+                    <h5>Position Greeks</h5>
+                </div>
+                <div id="analyerPositions" style="width:100%; height:280px; background:#1E2B34;">
+                    <table class="table scroll table-condensed">
+                        <thead>
+                            <tr>
+                                <th style="width:25%">ASSET</th>
+                                <th>DELTA</th>
+                                <th>GAMMA</th>
+                                <th>VEGA</th>
+                                <th>THETA</th>
+                                <!-- <th>RHO</th> -->
+                            </tr>
+                        </thead>
+
+                        <tbody id="greektable" style="height:220px; font-size:12px">
+                            <tr>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <!-- <td>-</td> -->
+                            </tr>
+                        </tbody>
+                        <tfoot id="greektablefoot">
+                            <tr>
+                                <td>PORTFOLIO</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <!-- <td>-</td> -->
+                            </tr>
+                        </tfoot>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<script>
+    $(function() {
+        //Execute every 5 seconds
+
+        setInterval(function() {
+            AOapi.Account.getBalances(AOui.Account.updateBalances);
+            AOapi.Account.getPositions(AOui.Account.updatePositions);
+            updateanalyzerAdded(testPortArr2);
+            AOapi.User.getUserMargin(AOui.Settings.updateMargin);
+        }, 10000);
+
+        setInterval(function() {
+            updateanalyzerAdded(testPortArr2);
+            createRiskChart();
+            createSensitivity();
+        }, 1000);
+
+        AOapi.Account.getOpenOrders(AOui.Account.updateOpenOrders);
+        AOapi.Product.getOptions(AOui.Product.updateOptions3, {
+            expTime: "2015-11-30T23:59:59"
+        });
+        AOapi.User.getUserMargin(AOui.Settings.updateMargin);
+        AOapi.Product.getExpirations(AOui.Product.updateExpirations);
+        createRiskChart();
+        createSensitivity();
+    });
+</script>

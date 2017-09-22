@@ -1,0 +1,32 @@
+
+<div>
+    <div class="row section-head">
+      <h5>DEPTH:
+        <span id="mktDptProd" style="color:white"></span>
+      </h5>
+    </div>
+    <table class="table scroll table-condensed" style="text-align:center;">
+      <thead>
+        <tr>
+          <th>SIZE</th>
+          <th>PRICE</th>
+        </tr>
+      </thead>
+
+      <tbody id="MDtable" style="height:800px;">
+
+        <tr ng-repeat="ask in asks track by ask.price | limitTo:15" class= "trade" ng-click = "updateFn({ordPrice: ask.price,ordAmt: ask.amount})" >
+          <td highlighter ="ask.amount">{{ask.amount | number:8}}</td>
+          <td highlighter ="ask.price" style="color:#FF6939">{{ask.price | currency}}</td>
+        </tr>
+        <tr style="border-top: 1px solid #4B555C;border-bottom: 1px solid #4B555C;display:block">
+          <td>Spread:</td>
+          <td highlighter="bids[0].price">{{asks[asks.length-1].price -bids[0].price | currency}}</td>
+        </tr>
+        <tr ng-repeat="bid in bids track by bid.price| limitTo:15" class= "trade" ng-click = "updateFn({ordPrice: bid.price,ordAmt: bid.amount})">
+          <td highlighter ="bid.amount">{{bid.amount | number:8}}</td>
+          <td highlighter ="bid.price" style="color:#50b949">{{bid.price | currency}}</td>
+        </tr>
+      </tbody>
+    </table>
+</div>

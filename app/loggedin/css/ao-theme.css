@@ -1,0 +1,579 @@
+a:hover {
+    cursor: pointer;
+}
+
+.position_input {
+  background:none;
+  width:20px;
+}
+
+/*Navigation Part Starting Here*/
+.exp_dropdown {
+  background:rgba(0,0,0,0.9);
+  margin-right:auto;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+}
+
+.exp_dropdown li a {
+  color:#FEFEFE;
+  padding:1px;
+  font-size:13px;
+  text-align: left;
+}
+
+.exp_dropdown li a:hover {
+  cursor: pointer;
+  color:#45b85a;
+  background: none;
+}
+
+.unselected {
+  background-color:#FEFEFE;
+  color:grey;
+  border:1px solid #C9CBD6;
+  width:65px;
+}
+
+.glow2 {
+    box-shadow: 0 0 10px #31B0D5;
+    width:65px;
+}
+.glow {
+  box-shadow: 0 0 8px #9ecaed;
+}
+
+li button {
+    vertical-align: middle;
+    height: auto;
+    margin-right: 10px;
+    background-color: inherit;
+    color: inherit;
+    border: none;
+}
+
+.nav-ul {
+    font-size: 0.4em;
+    color: #000;
+    text-align: left;
+}
+
+.nav-ul li {
+    float: left;
+}
+
+li > ul {
+    white-space: nowrap;
+}
+
+.navbar-nav > li > a {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.top-bar {
+    width: 100%;
+    height: 45px;
+    background: #ffffff;
+    /*background: rgba(30,43,52,0.9);*/
+    color: #FFFFFF;
+    border-bottom: 4px solid #45B85A;
+}
+
+#top-bar-balances {
+    font-size: 15px;
+    font-weight: bold;
+    color: rgba(21, 35, 44, 0.8);
+}
+
+#top-bar-balances li {
+    height: 40px;
+    padding: 5px 5px 5px 10px;
+}
+
+#top-bar-balances a {
+    display: block;
+    font-size: 11px;
+    color: rgba(21, 35, 44, 0.5);
+    font-weight: normal;
+}
+
+#top-bar-controllers li {
+    padding: 12px 0px 10px 0px;
+    font-weight: normal;
+}
+
+#top-bar-controllers a {
+    display: block;
+    width: 100%;
+    font-size: 15px;
+    color: rgba(21, 35, 44, 0.5);
+    font-weight: normal;
+    padding: 0px 10px 0px 10px;
+}
+
+#top-bar-controllers a:hover {
+    cursor: pointer;
+    color: #46B85B;
+    text-shadow: 2px #46B85B;
+}
+
+
+/*Navigation Part Ending Here*/
+
+.title-row {
+    background: #000;
+    padding: 5px;
+    color: white;
+    height: 3em;
+    text-align: center;
+}
+
+.dropdown-menu {
+    bottom: 100%;
+}
+
+.table {
+    margin-bottom: 2px;
+}
+
+table.trading tbody,
+table.trading tfoot {
+    display: table-header-group;
+    font-size: 12px;
+    font-weight: 100;
+    color: white;
+    text-align: center;
+    background-color: #1E2B34;
+}
+
+table.trading thead {
+    height: 30px;
+    font-size: 14px;
+    font-weight: 100;
+    color: #FFF;
+    background-color: #1E2B34;
+    border-bottom: 1px solid #4B555C;
+}
+
+table.trading tbody {
+    height: 250px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+table.scroll tbody,
+table.scroll thead,
+table.scroll tfoot {
+    display: block;
+    background-color: #1E2B34;
+}
+
+table.scroll thead th,
+table.scroll tbody td,
+table.scroll tfoot td {
+    width: 150px;
+    font-size: 11px;
+    font-weight: 100;
+    color: #FEFEFE;
+    text-align: center;
+}
+
+table.scroll tbody {
+    height: 250px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+table.scroll thead {
+    height: 30px;
+    font-size: 12px;
+    color: #6C747B;
+    border-bottom: 1px solid #4B555C;
+}
+
+thead,
+tfoot {
+    font-weight: 600;
+}
+
+table tbody tr:hover td {
+    cursor: pointer;
+    background: #15232D;
+}
+
+
+#chart-container {
+  width: 100%;
+  height: 340px;
+}
+
+
+#EMtableC,
+#EMtable2C {
+    overflow: hidden;
+}
+
+#EMtableC td:nth-child(6),
+#EMtable2C td:nth-child(6),
+#EMtableCA td:nth-child(7) {
+    background: #2F3D45;
+    font-weight: 600;
+}
+
+#overlay-back {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+    z-index: 5;
+    display: none;
+}
+
+#overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    display: none;
+}
+
+.cancelBtn {
+    height: auto;
+    font-size: 0.8em;
+    padding: 0px 5px;
+    text-align: center;
+}
+
+.section-head {
+    background: #2F3D45;
+    color: white;
+    height: 33px;
+    vertical-align: middle;
+    text-align: center;
+    font-weight: bold;
+    /*border-bottom: 1px solid #50B949;*/
+}
+
+.section-head li a {
+    font-size: 12px;
+    padding: 10px;
+}
+
+.section-head button,
+.section-head button:hover {
+    background: none;
+    border: none;
+    color: #fff;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+}
+
+.section-head button:hover {
+    background: none;
+}
+
+.big-checkbox {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+}
+
+#expTimes {
+    color: black;
+    text-align: center;
+    cursor: pointer;
+    padding: 0;
+}
+
+#expTimes li {
+    margin: 4px;
+}
+
+#expTimes li:hover {
+    background: #ccc;
+}
+
+.analyzer-inc {
+    width: 35px;
+    background: #1E2B34;
+    border: solid 1px #475862;
+    font-size: 12;
+    color: #fff;
+    text-align: center;
+}
+
+
+/*orderbook - market depth*/
+
+.orderbook {
+    font-size: 9px;
+    padding: 2.0px 1.5px 1.0px 1.5px;
+}
+
+
+/*option-chain*/
+
+.charting {
+    padding: 2.0px 1.0px 0.0px 1.5px;
+}
+
+.option-chain {
+    padding: 1.0px 0px 1.0px 1.5px;
+}
+
+
+/*Greeks & Positions*/
+
+.greeks {
+    font-size: 9px;
+    padding: 2.0px 1.5px 0.0px 1.5px;
+}
+
+.positions {
+    font-size: 9px;
+    padding: 0px 1.5px 1.0px 1.5px;
+}
+
+.positions-tab {
+    background: #2F3D45;
+    color: #FFFFFF;
+    vertical-align: middle;
+    text-align: center;
+    font-weight: bold;
+    /*border-bottom: 1px solid #50B949;*/
+}
+
+
+/*Last Trade*/
+
+.tradehistory {
+    font-size: 9px;
+    padding: 2.0px 1.5px 1.0px 1.5px;
+}
+
+#LTtable td:nth-child(3) {
+    color: #D5D5C6;
+}
+
+
+/*body.php top and bottom trading bar*/
+
+.trading-bar {
+    width: 100%;
+    background: rgba(30, 43, 52, 0.9);
+    color: #fff;
+    position: fixed;
+    bottom: 0;
+    vertical-align: middle;
+    border-top: 1px solid #15232C;
+}
+
+
+/*Settings Page tabs*/
+
+.settings-tab {
+    background: #2F3D45;
+    color: #FFFFFF;
+    vertical-align: middle;
+    text-align: center;
+    font-weight: 100;
+    font-size: 18;
+    margin-left: 3px;
+    /*text-transform: uppercase;*/
+    /*border-bottom: 1px solid #50B949;*/
+}
+
+.list-items {
+    background: #2F3D45;
+    color: white;
+    font-weight: 100;
+    padding: 2px, 1px, 1px, 1px
+}
+
+.list-items-content {
+    background: #1E2B34;
+    font-weight: 100;
+    color: white;
+}
+
+#password-warpper {
+    background: #1E2B34;
+    display: block;
+    height: 330px;
+    font-weight: 100;
+    color: white;
+    padding: 20px 15px 15px 15px;
+}
+
+#password-warpper label {
+    float: left;
+}
+
+#kyc-warpper {
+    background: #1E2B34;
+    display: block;
+    height: 477px;
+    font-weight: 100;
+    color: white;
+    padding: 20px 15px 15px 15px;
+}
+
+#kyc-warpper label {
+    float: left;
+}
+
+
+/*DyGraph Customization */
+
+.dygraph-axis-label {
+    font-size: 12px;
+    color: white;
+}
+
+.dygraph-legend {
+    margin-top: 15px !important;
+    color: white !important;
+    background: rgba( 255, 255, 255, 0.1) !important;
+    ;
+}
+
+.modal-content {
+    background: rgba(30, 43, 52, 0.9);
+}
+
+
+/**Analytics Page**/
+
+#option-chain-analytics th {
+	width: 7.5%
+}
+
+#analyerPositions th {
+    border: none;
+    text-align: center;
+}
+
+#analyerPositions tbody {
+    height: 592px;
+}
+
+.scenario-section {
+    height: 470px;
+    background: #1E2B34;
+    margin-left: 2px;
+}
+
+#sensitivites-table-tbody td:nth-child(1) {
+    border-right: 1px solid #4B555C;
+    background: #2F3D45;
+    font-weight: 300;
+    text-align: center;
+}
+
+/*#sensitivites-table th:nth-child(1) {
+    width: 100px;
+    text-align: center;
+}
+
+#sensitivites-table td {
+    width: 10%;
+    padding-left: justify;
+    padding-right: justify;
+    text-align: right;
+}*/
+
+/*#sensitivites-table th {
+    border: none;
+}
+
+#sensitivites-table tr {
+    display: block;
+}*/
+
+#sensitivites-table-tbody {
+    height: 305px;
+}
+
+body {
+  font-family:sans-serif !important;
+}
+
+
+.arrow-up {
+	width: 0;
+	height: 0;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-bottom: 5px solid #50B949;
+}
+
+.arrow-down {
+	width: 0;
+	height: 0;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-top: 5px solid #FF6939;
+}
+
+.highlight-red {
+    color:white;
+    /*background: #FF6939;*/
+    font-size:12.5px;
+    -webkit-animation: target-fade-red 5s 1;
+    -moz-animation: target-fade-red 5s 1;
+}
+.highlight-green {
+    color:white;
+    /*background: #50B949;*/
+    font-size:12.5px;
+    -webkit-animation: target-fade-green 5s 1;
+    -moz-animation: target-fade-green 5s 1;
+}
+
+/*:target {
+    -webkit-animation: target-fade-red 3s 1;
+    -moz-animation: target-fade-red 3s 1;
+}*/
+
+
+.example-enter {
+  opacity: 0.01;
+}
+
+.example-enter.example-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.example-leave {
+  opacity: 1;
+}
+
+.example-leave.example-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
+}
+
+@-webkit-keyframes target-fade-red {
+    0% { background-color: rgba(255, 100, 50, 1); }
+    100% { background-color: rgba(0,0,0,0); }
+}
+@-moz-keyframes target-fade-red {
+    0% { background-color: rgba(255, 100, 50, 1); }
+    100% { background-color: rgba(0,0,0,0); }
+}
+
+@-webkit-keyframes target-fade-green {
+    0% { background-color: rgba(80, 185, 73, 1); }
+    100% { background-color: rgba(0,0,0,0); }
+}
+@-moz-keyframes target-fade-green {
+    0% { background-color: rgba(80, 185, 73, 1); }
+    100% { background-color: rgba(0,0,0,0); }
+}

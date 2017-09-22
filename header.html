@@ -1,0 +1,113 @@
+
+<nav class="navbar navbar-default navbar-fixed-top" style="background-color:rgba(0, 0, 0, 0.75)">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span id="lang217" class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand page-scroll" href="/#">
+                <img src="img/logo_standalone.png" style="margin-top: -10px" width="150px">
+            </a>
+
+			<!--Tooltip Js Class Starts Here-->
+			<script src="https://code.jquery.com/jquery.js"></script>
+			<script type="text/javascript">
+           $(function () { $("[data-toggle='tooltip']").tooltip(); });
+			</script>
+
+
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" style="background-color:rgba(0, 0, 0, 0.80)" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="hidden">
+                    <a href="/#"></a>
+                </li>
+                <li>
+						<a id="lang218" href="vol.php" id="example" data-toggle="tooltip" data-placement="bottom" title="" data-original-title=
+                        "AOEX Volatility Index measures of how much the price of Bitcoin varies over time. Higher volatility means that an asset is riskier to hold."。>
+						 Volatility Index:
+							</a>
+                </li>
+
+                <script>
+                    var vol = <?php $btcVol=fopen( "btcVol.txt", "r") or die ( "Unable to open file!"); echo fgets($btcVol); fclose($btcVol);
+                    ?>;
+                    vol = vol.toFixed(2);
+                </script>
+
+
+                <li class="dropdown" role="presentation">
+                    <!-- <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"  aria-haspopup="true" >Resources <span class="caret"></span></a> -->
+					<div id="lang221" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"  aria-haspopup="true"  style="margin:14px 0 14px 14px;color:#fff;font-weight:600;font-size:15px;">RESOURCES<span class='caret'></span></div>
+
+                    <ul class="dropdown-menu" role="menu" style="background-color:rgba(0, 0, 0, 0.80)" id ="dropdown">
+                        <li><a id="lang222" href="https://eepurl.com/--4PX">Institutions</a>
+                        </li>
+                        <li><a id="lang223" href="bitcoin.php">What is Bitcoin?</a>
+                        </li>
+                        <li><a id="lang224" href="options.php">What is Option?</a>
+                        </li>
+                        <li><a id="lang225" href="competition.php">Competition</a>
+                        </li>
+						            <li><a id="lang226" href="specs.php">Product & Margins</a>
+                        </li>
+                        <li><a id="lang227" href="https://medium.com/@altoptions">Blog</a>
+                        </li>
+                        <li><a id="lang228" href="faq.php">FAQ</a>
+                        </li>
+                        <li><a id="lang229" href="about_us.php">About AOEX</a>
+                        </li>
+                    </ul>
+                </li>
+
+
+                <li>
+                    <a href="/app/">BETA Login</a>
+                </li>
+
+                <!-- <li>
+                   <button class = "btn btn-success regbtn" onclick="window.location.href='/app/login.html'">Beta Login</button>
+                </li> -->
+
+                <!-- <li>
+                   <button class = "btn btn-info regbtn" onclick="window.location.href='/app/login.html'">Login Competition</button>
+                </li> -->
+
+                <li>
+                    <a class = "btn-sign-in" id ="lang10001" href="register.php">Sign up</a>
+                </li>
+
+                <li>
+                    <img src="img/dot.png" style="margin: 10px 10px 0px 10px; height: 2em; width:1px;">
+                </li>
+
+                <li>
+                    <div="row">
+                        <a href="#" id="ENG"><img class = "lan-img" src="img/lan/lang-en.png.gz"></a>
+                        <a href ="#" id="CHN"><img class = "lan-img" src="img/lan/lang-zh.png.gz"></a>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+	<!--popovers-->
+    <!-- /.container-fluid -->
+</nav>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-66743100-1', 'auto');
+  ga('send', 'pageview');
+</script>

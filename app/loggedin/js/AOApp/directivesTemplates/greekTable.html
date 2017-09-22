@@ -1,0 +1,54 @@
+<div>
+    <div class="row section-head">
+      <h5>Position Risk Profile</h5>
+    </div>
+
+    <table class="table scroll table-condensed" style="text-align:center">
+      <thead>
+        <tr>
+          <th style="width:25%">ASSET</th>
+          <th>DELTA</th>
+          <th>GAMMA</th>
+          <th>VEGA</th>
+          <th>THETA</th>
+          <!-- <th>RHO</th> -->
+        </tr>
+      </thead>
+
+      <div class="noData" style = "height:341px" ng-show = "data.length == 0">
+          <div style = "padding-top:30%;">You Don't Have Any Positions</div>
+      </div>
+
+      <div class="cssload-thecube" ng-hide = " data.length == 0 || data.length >= 1 " style = "margin-top:30%;">
+          <div class="cssload-cube cssload-c1"></div>
+          <div class="cssload-cube cssload-c2"></div>
+          <div class="cssload-cube cssload-c4"></div>
+          <div class="cssload-cube cssload-c3"></div>
+      </div>
+
+      <tbody id="greektable" style="height:289px; font-size:12px">
+        <tr ng-repeat = "product in data track by $index" ng-show= "data.length >= 1">
+          <td>{{product.asset}}</td>
+          <td>{{product.delta  | number:2}}</td>
+          <td>{{product.gamma  | number:2}}</td>
+          <td>{{product.vega   | number:2}}</td>
+          <td>{{product.theta  | number:2}}</td>
+          <!-- <td>-</td> -->
+        </tr>
+      </tbody>
+      <tfoot id="greektablefoot">
+        <tr>
+          <td>PORTFOLIO</td>
+          <td ng-if = 'data.length >= 1'>{{updateFn().delta | number: 2}}</td>
+          <td ng-if = 'data.length >= 1'>{{updateFn().gamma | number:2}}</td>
+          <td ng-if = 'data.length >= 1'>{{updateFn().vega | number:2}}</td>
+          <td ng-if = 'data.length >= 1'>{{updateFn().theta | number:2}}</td>
+          <td  ng-if = 'data.length == 0'>0.00</td>
+          <td  ng-if = 'data.length == 0'>0.00</td>
+          <td  ng-if = 'data.length == 0'>0.00</td>
+          <td  ng-if = 'data.length == 0'>0.00</td>
+          <!-- <td>-</td> -->
+        </tr>
+      </tfoot>
+    </table>
+</div>
